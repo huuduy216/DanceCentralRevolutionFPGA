@@ -1,0 +1,149 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -9.869
+TNS   : -773.668
+
+Type  : Slow 1100mV 85C Model Setup 'VGA_Ctrl:controller|oVGA_HS'
+Slack : -2.131
+TNS   : -46.310
+
+Type  : Slow 1100mV 85C Model Setup 'CLKHALF'
+Slack : -1.826
+TNS   : -36.433
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : -0.836
+TNS   : -4.253
+
+Type  : Slow 1100mV 85C Model Hold 'CLKHALF'
+Slack : 0.126
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'VGA_Ctrl:controller|oVGA_HS'
+Slack : 0.289
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.785
+TNS   : -59.687
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA_Ctrl:controller|oVGA_HS'
+Slack : -0.394
+TNS   : -14.140
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLKHALF'
+Slack : -0.394
+TNS   : -11.203
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -10.007
+TNS   : -776.966
+
+Type  : Slow 1100mV 0C Model Setup 'VGA_Ctrl:controller|oVGA_HS'
+Slack : -2.101
+TNS   : -45.649
+
+Type  : Slow 1100mV 0C Model Setup 'CLKHALF'
+Slack : -1.834
+TNS   : -35.532
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : -1.038
+TNS   : -7.635
+
+Type  : Slow 1100mV 0C Model Hold 'CLKHALF'
+Slack : 0.189
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'VGA_Ctrl:controller|oVGA_HS'
+Slack : 0.286
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.803
+TNS   : -65.012
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA_Ctrl:controller|oVGA_HS'
+Slack : -0.394
+TNS   : -13.772
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLKHALF'
+Slack : -0.394
+TNS   : -11.291
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -5.279
+TNS   : -423.774
+
+Type  : Fast 1100mV 85C Model Setup 'VGA_Ctrl:controller|oVGA_HS'
+Slack : -0.913
+TNS   : -19.776
+
+Type  : Fast 1100mV 85C Model Setup 'CLKHALF'
+Slack : -0.752
+TNS   : -14.986
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : -0.668
+TNS   : -5.524
+
+Type  : Fast 1100mV 85C Model Hold 'CLKHALF'
+Slack : -0.110
+TNS   : -0.110
+
+Type  : Fast 1100mV 85C Model Hold 'VGA_Ctrl:controller|oVGA_HS'
+Slack : 0.098
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.723
+TNS   : -10.406
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA_Ctrl:controller|oVGA_HS'
+Slack : -0.016
+TNS   : -0.324
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLKHALF'
+Slack : 0.150
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -4.782
+TNS   : -376.545
+
+Type  : Fast 1100mV 0C Model Setup 'VGA_Ctrl:controller|oVGA_HS'
+Slack : -0.802
+TNS   : -17.331
+
+Type  : Fast 1100mV 0C Model Setup 'CLKHALF'
+Slack : -0.667
+TNS   : -12.873
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : -0.775
+TNS   : -7.558
+
+Type  : Fast 1100mV 0C Model Hold 'CLKHALF'
+Slack : -0.111
+TNS   : -0.111
+
+Type  : Fast 1100mV 0C Model Hold 'VGA_Ctrl:controller|oVGA_HS'
+Slack : 0.083
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.698
+TNS   : -10.583
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA_Ctrl:controller|oVGA_HS'
+Slack : 0.027
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLKHALF'
+Slack : 0.147
+TNS   : 0.000
+
+------------------------------------------------------------
