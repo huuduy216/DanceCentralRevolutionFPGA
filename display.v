@@ -1,5 +1,4 @@
 module display(input clk, output [7:0]VGA_R, output [7:0]VGA_G, output [7:0]VGA_B, output VGA_HS, output VGA_VS, output VGA_BLANK_N, output VGA_CLK);
-// testing git
 
 reg [9:0] mRed, mGreen, mBlue;
 
