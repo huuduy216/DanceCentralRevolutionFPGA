@@ -103,6 +103,7 @@ clk => mRed[7].CLK
 clk => mRed[8].CLK
 clk => mRed[9].CLK
 clk => CLKHALF.CLK
+switch => ~NO_FANOUT~
 VGA_R[0] <= VGA_Ctrl:controller.oVGA_R
 VGA_R[1] <= VGA_Ctrl:controller.oVGA_R
 VGA_R[2] <= VGA_Ctrl:controller.oVGA_R

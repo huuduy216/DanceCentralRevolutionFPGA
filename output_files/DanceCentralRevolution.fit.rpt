@@ -1,6 +1,6 @@
 Fitter report for DanceCentralRevolution
-Thu Jul 20 12:38:35 2017
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Thu Jul 20 14:08:11 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -43,7 +43,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -63,8 +63,8 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Thu Jul 20 12:38:35 2017       ;
-; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Fitter Status                   ; Successful - Thu Jul 20 14:08:11 2017       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DanceCentralRevolution                      ;
 ; Top-level Entity Name           ; DanceCentralRevolution                      ;
 ; Family                          ; Cyclone V                                   ;
@@ -158,9 +158,9 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.2%      ;
-;     Processor 3            ;   1.0%      ;
-;     Processor 4            ;   1.0%      ;
+;     Processor 2            ;   1.1%      ;
+;     Processor 3            ;   0.9%      ;
+;     Processor 4            ;   0.9%      ;
 +----------------------------+-------------+
 
 
@@ -253,7 +253,7 @@ agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in D:/Advanced Digital Circuit/DanceCentralRevolution/output_files/DanceCentralRevolution.pin.
+The pin-out file can be found in C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/output_files/DanceCentralRevolution.pin.
 
 
 +--------------------------------------------------------------------------------------------+
@@ -1895,7 +1895,7 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQue
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:13
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:14
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
@@ -1908,24 +1908,24 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (188005): Design requires adding a large amount of routing delay for some signals to meet hold time requirements, and there is an excessive demand for the available routing resources. The Fitter is reducing the routing delays of some signals to help the routing algorithm converge, but doing so may cause hold time failures. For more information, refer to the "Estimated Delay Added for Hold Timing" section in the Fitter report.
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:19
-Info (11888): Total time spent on timing analysis during the Fitter is 1.06 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:20
+Info (11888): Total time spent on timing analysis during the Fitter is 1.21 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:04
-Info (144001): Generated suppressed messages file D:/Advanced Digital Circuit/DanceCentralRevolution/output_files/DanceCentralRevolution.fit.smsg
+Info (144001): Generated suppressed messages file C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/output_files/DanceCentralRevolution.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 2420 megabytes
-    Info: Processing ended: Thu Jul 20 12:38:35 2017
-    Info: Elapsed time: 00:00:56
-    Info: Total CPU time (on all processors): 00:01:40
+    Info: Peak virtual memory: 2516 megabytes
+    Info: Processing ended: Thu Jul 20 14:08:11 2017
+    Info: Elapsed time: 00:01:03
+    Info: Total CPU time (on all processors): 00:01:51
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in D:/Advanced Digital Circuit/DanceCentralRevolution/output_files/DanceCentralRevolution.fit.smsg.
+The suppressed messages can be found in C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/output_files/DanceCentralRevolution.fit.smsg.
 
 

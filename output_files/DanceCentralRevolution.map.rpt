@@ -1,6 +1,6 @@
 Analysis & Synthesis report for DanceCentralRevolution
-Thu Jul 20 12:37:38 2017
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Tue Jul 25 11:11:55 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -28,7 +28,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -48,14 +48,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Jul 20 12:37:38 2017       ;
-; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Analysis & Synthesis Status     ; Successful - Tue Jul 25 11:11:55 2017       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DanceCentralRevolution                      ;
 ; Top-level Entity Name           ; DanceCentralRevolution                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 114                                         ;
-; Total pins                      ; 29                                          ;
+; Total pins                      ; 30                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -172,14 +172,14 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
-; DanceCentralRevolution.v         ; yes             ; User Verilog HDL File        ; D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v ;         ;
-; vga_ctrl.v                       ; yes             ; Auto-Found Verilog HDL File  ; D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v               ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                              ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; DanceCentralRevolution.v         ; yes             ; User Verilog HDL File        ; C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v ;         ;
+; vga_ctrl.v                       ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v               ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -198,14 +198,14 @@ agreement for further details.
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 114       ;
 ;                                             ;           ;
-; I/O pins                                    ; 29        ;
+; I/O pins                                    ; 30        ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 90        ;
-; Total fan-out                               ; 1745      ;
-; Average fan-out                             ; 3.18      ;
+; Total fan-out                               ; 1746      ;
+; Average fan-out                             ; 3.17      ;
 +---------------------------------------------+-----------+
 
 
@@ -214,7 +214,7 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Entity Name            ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+------------------------+--------------+
-; |DanceCentralRevolution    ; 377 (317)           ; 114 (90)                  ; 0                 ; 0          ; 29   ; 0            ; |DanceCentralRevolution                     ; DanceCentralRevolution ; work         ;
+; |DanceCentralRevolution    ; 377 (317)           ; 114 (90)                  ; 0                 ; 0          ; 30   ; 0            ; |DanceCentralRevolution                     ; DanceCentralRevolution ; work         ;
 ;    |VGA_Ctrl:controller|   ; 60 (60)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|VGA_Ctrl:controller ; VGA_Ctrl               ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -325,7 +325,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 18                          ;
 ;         5 data inputs ; 21                          ;
 ;         6 data inputs ; 80                          ;
-; boundary_port         ; 29                          ;
+; boundary_port         ; 30                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 11.90                       ;
 ; Average LUT depth     ; 7.01                        ;
@@ -346,43 +346,45 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu Jul 20 12:37:27 2017
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Tue Jul 25 11:11:43 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DanceCentralRevolution -c DanceCentralRevolution
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file dancecentralrevolution.v
-    Info (12023): Found entity 1: DanceCentralRevolution File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
+    Info (12023): Found entity 1: DanceCentralRevolution File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
 Info (12127): Elaborating entity "DanceCentralRevolution" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at DanceCentralRevolution.v(68): truncated value with size 32 to match size of target (8) File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 68
-Warning (10230): Verilog HDL assignment warning at DanceCentralRevolution.v(79): truncated value with size 32 to match size of target (8) File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 79
+Warning (10230): Verilog HDL assignment warning at DanceCentralRevolution.v(68): truncated value with size 32 to match size of target (8) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 68
+Warning (10230): Verilog HDL assignment warning at DanceCentralRevolution.v(79): truncated value with size 32 to match size of target (8) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 79
 Warning (12125): Using design file vga_ctrl.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: VGA_Ctrl File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 1
-Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "VGA_Ctrl:controller" File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 48
-Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(64): truncated value with size 32 to match size of target (22) File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 64
-Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(67): truncated value with size 32 to match size of target (11) File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 67
-Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(68): truncated value with size 32 to match size of target (11) File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 68
+    Info (12023): Found entity 1: VGA_Ctrl File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 1
+Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "VGA_Ctrl:controller" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 48
+Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(64): truncated value with size 32 to match size of target (22) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 64
+Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(67): truncated value with size 32 to match size of target (11) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 67
+Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(68): truncated value with size 32 to match size of target (11) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 68
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_G[0]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[1]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[2]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[3]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[4]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[5]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[6]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[7]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[0]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[1]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[2]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[3]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[4]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[5]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[6]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[7]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 458 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "switch" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+Info (21057): Implemented 459 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
     Info (21059): Implemented 28 output pins
     Info (21061): Implemented 429 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 689 megabytes
-    Info: Processing ended: Thu Jul 20 12:37:38 2017
-    Info: Elapsed time: 00:00:11
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 722 megabytes
+    Info: Processing ended: Tue Jul 25 11:11:55 2017
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:26
 
 

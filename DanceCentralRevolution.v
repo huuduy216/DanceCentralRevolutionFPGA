@@ -1,4 +1,4 @@
-module DanceCentralRevolution(input clk, output [7:0]VGA_R, output [7:0]VGA_G, output [7:0]VGA_B, output VGA_HS, output VGA_VS, output VGA_BLANK_N, output VGA_CLK);
+module DanceCentralRevolution(input clk, input switch, output [7:0]VGA_R, output [7:0]VGA_G, output [7:0]VGA_B, output VGA_HS, output VGA_VS, output VGA_BLANK_N, output VGA_CLK);
 
 
 reg [9:0] mRed, mGreen, mBlue;
@@ -52,7 +52,7 @@ VGA_Ctrl	controller	(	//	Host Side
 			CLKHALF = ~CLKHALF;
 		end
 							
-		always @(posedge clk) 
+		always @((posedge clk) & switch) 
 		begin
 			mRed   = 10'b1111111111;
 			mGreen = 10'b1111111111;
