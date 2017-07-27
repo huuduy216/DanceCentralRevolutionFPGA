@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Tue Jul 25 11:11:55 2017
+Analysis & Synthesis Status : Successful - Thu Jul 27 16:56:34 2017
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : DanceCentralRevolution
 Top-level Entity Name : DanceCentralRevolution
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 114
-Total pins : 30
+Total registers : 37
+Total pins : 34
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
