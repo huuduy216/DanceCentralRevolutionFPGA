@@ -1,12 +1,12 @@
-Fitter Status : Successful - Thu Jul 27 16:57:27 2017
-Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+Fitter Status : Successful - Mon Jul 31 20:48:19 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : DanceCentralRevolution
 Top-level Entity Name : DanceCentralRevolution
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 379 / 32,070 ( 1 % )
-Total registers : 60
+Logic utilization (in ALMs) : 377 / 32,070 ( 1 % )
+Total registers : 56
 Total pins : 34 / 457 ( 7 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )

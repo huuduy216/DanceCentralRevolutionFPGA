@@ -1,4 +1,41 @@
 |DanceCentralRevolution
+clk => clk.IN1
+go_switch => ~NO_FANOUT~
+pad[0] => ~NO_FANOUT~
+pad[1] => ~NO_FANOUT~
+pad[2] => ~NO_FANOUT~
+pad[3] => ~NO_FANOUT~
+VGA_R[0] <= display:mainDisplay.port1
+VGA_R[1] <= display:mainDisplay.port1
+VGA_R[2] <= display:mainDisplay.port1
+VGA_R[3] <= display:mainDisplay.port1
+VGA_R[4] <= display:mainDisplay.port1
+VGA_R[5] <= display:mainDisplay.port1
+VGA_R[6] <= display:mainDisplay.port1
+VGA_R[7] <= display:mainDisplay.port1
+VGA_G[0] <= display:mainDisplay.port2
+VGA_G[1] <= display:mainDisplay.port2
+VGA_G[2] <= display:mainDisplay.port2
+VGA_G[3] <= display:mainDisplay.port2
+VGA_G[4] <= display:mainDisplay.port2
+VGA_G[5] <= display:mainDisplay.port2
+VGA_G[6] <= display:mainDisplay.port2
+VGA_G[7] <= display:mainDisplay.port2
+VGA_B[0] <= display:mainDisplay.port3
+VGA_B[1] <= display:mainDisplay.port3
+VGA_B[2] <= display:mainDisplay.port3
+VGA_B[3] <= display:mainDisplay.port3
+VGA_B[4] <= display:mainDisplay.port3
+VGA_B[5] <= display:mainDisplay.port3
+VGA_B[6] <= display:mainDisplay.port3
+VGA_B[7] <= display:mainDisplay.port3
+VGA_HS <= display:mainDisplay.port4
+VGA_VS <= display:mainDisplay.port5
+VGA_BLANK_N <= display:mainDisplay.port6
+VGA_CLK <= display:mainDisplay.port7
+
+
+|DanceCentralRevolution|display:mainDisplay
 clk => mBlue[0].CLK
 clk => mBlue[1].CLK
 clk => mBlue[2].CLK
@@ -30,11 +67,6 @@ clk => mRed[7].CLK
 clk => mRed[8].CLK
 clk => mRed[9].CLK
 clk => CLKHALF.CLK
-go_switch => ~NO_FANOUT~
-pad[0] => ~NO_FANOUT~
-pad[1] => ~NO_FANOUT~
-pad[2] => ~NO_FANOUT~
-pad[3] => ~NO_FANOUT~
 VGA_R[0] <= VGA_Ctrl:controller.oVGA_R
 VGA_R[1] <= VGA_Ctrl:controller.oVGA_R
 VGA_R[2] <= VGA_Ctrl:controller.oVGA_R
@@ -65,7 +97,7 @@ VGA_BLANK_N <= VGA_Ctrl:controller.oVGA_BLANK
 VGA_CLK <= VGA_Ctrl:controller.oVGA_CLOCK
 
 
-|DanceCentralRevolution|VGA_Ctrl:controller
+|DanceCentralRevolution|display:mainDisplay|VGA_Ctrl:controller
 iRed[0] => oVGA_R[0].DATAIN
 iRed[1] => oVGA_R[1].DATAIN
 iRed[2] => oVGA_R[2].DATAIN
