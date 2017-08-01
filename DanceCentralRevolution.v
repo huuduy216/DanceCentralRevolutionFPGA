@@ -3,7 +3,7 @@ module DanceCentralRevolution(input clk, input go_switch, input [3:0]pad, output
 
 
 
-display mainDisplay(clk, VGA_R, VGA_G, VGA_B,VGA_HS, VGA_VS, VGA_BLANK_N, VGA_CLK);
+display mainDisplay(clk, go_switch, pad, VGA_R, VGA_G, VGA_B,VGA_HS, VGA_VS, VGA_BLANK_N, VGA_CLK);
 						
 							
 endmodule

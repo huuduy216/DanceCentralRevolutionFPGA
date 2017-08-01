@@ -1,6 +1,6 @@
 Assembler report for DanceCentralRevolution
-Mon Jul 31 20:48:28 2017
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Tue Aug 01 14:42:29 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -10,7 +10,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: D:/Advanced Digital Circuit/DanceCentralRevolution/output_files/DanceCentralRevolution.sof
+  5. Assembler Device Options: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/output_files/DanceCentralRevolution.sof
   6. Assembler Messages
 
 
@@ -18,7 +18,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Jul 31 20:48:28 2017 ;
+; Assembler Status      ; Successful - Tue Aug 01 14:42:29 2017 ;
 ; Revision Name         ; DanceCentralRevolution                ;
 ; Top-level Entity Name ; DanceCentralRevolution                ;
 ; Family                ; Cyclone V                             ;
@@ -53,24 +53,23 @@ agreement for further details.
 +--------+---------+---------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                  ;
-+--------------------------------------------------------------------------------------------+
-; File Name                                                                                  ;
-+--------------------------------------------------------------------------------------------+
-; D:/Advanced Digital Circuit/DanceCentralRevolution/output_files/DanceCentralRevolution.sof ;
-+--------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/output_files/DanceCentralRevolution.sof ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: D:/Advanced Digital Circuit/DanceCentralRevolution/output_files/DanceCentralRevolution.sof ;
-+----------------+-----------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                             ;
-+----------------+-----------------------------------------------------------------------------------------------------+
-; Device         ; 5CSEMA5F31C6                                                                                        ;
-; JTAG usercode  ; 0x00BB3179                                                                                          ;
-; Checksum       ; 0x00BB3179                                                                                          ;
-+----------------+-----------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/output_files/DanceCentralRevolution.sof ;
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                                                           ;
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00BE8BC8                                                                                                                                                        ;
+; Checksum       ; 0x00BE8BC8                                                                                                                                                        ;
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,15 +77,15 @@ agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Jul 31 20:48:21 2017
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Tue Aug 01 14:42:21 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off DanceCentralRevolution -c DanceCentralRevolution
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 704 megabytes
-    Info: Processing ended: Mon Jul 31 20:48:28 2017
-    Info: Elapsed time: 00:00:07
+    Info: Peak virtual memory: 725 megabytes
+    Info: Processing ended: Tue Aug 01 14:42:29 2017
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:07
 
 

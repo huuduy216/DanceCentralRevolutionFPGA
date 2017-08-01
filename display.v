@@ -1,4 +1,4 @@
-module display(input clk, output [7:0]VGA_R, output [7:0]VGA_G, output [7:0]VGA_B, output VGA_HS, output VGA_VS, output VGA_BLANK_N, output VGA_CLK);
+module display(input clk, input go_switch, input [3:0]pad, output [7:0]VGA_R, output [7:0]VGA_G, output [7:0]VGA_B, output VGA_HS, output VGA_VS, output VGA_BLANK_N, output VGA_CLK);
 
 reg [9:0] mRed, mGreen, mBlue;
 
@@ -9,13 +9,20 @@ wire [9:0] vga_r10;
 wire [9:0] vga_g10;
 wire [9:0] vga_b10;
 wire dummyWire;
+
 assign VGA_R = vga_r10[9:2];
 assign VGA_G = vga_g10[9:2];
 assign VGA_B = vga_b10[9:2];
 
 reg [31:0] counter, movecounter;
 reg up;
-reg [7:0] delta_y;
+
+reg arrowgo;
+
+reg [7:0] delta_y0;
+reg [7:0] delta_y1;
+reg [7:0] delta_y2;
+reg [7:0] delta_y3;
 
 reg [31:0] vposframe;	// vertical coordinate for the arrow frames
 reg [31:0] hpos3frame;	// horizontal coordinate for the leftmost arrow frame
@@ -27,9 +34,11 @@ initial
 begin
 	CLKHALF = 0;
 	counter = 0;
-	delta_y = 0;
 	up = 1;
 	movecounter = 0;
+	arrowgo = 0;
+	
+	delta_y0 = 336;
 	
 	vposframe = 36;
 	hpos3frame = 146;
@@ -215,7 +224,90 @@ VGA_Ctrl	controller	(	//	Host Side
 				mGreen = 10'b1111111111;
 				mBlue = 10'b1111111111;
 			end
-
+			
+			
+			if(!pad[3]) 
+			begin
+			
+				arrowgo = 1'b1;
+			
+			end
+				
+			
+			if(arrowgo) 
+			begin
+			
+				counter = counter + 1;
+				
+				if(counter >= 500000)
+				begin
+				
+					counter = 0;
+					delta_y0 = delta_y0 - 1;
+					
+				end
+				
+				if(delta_y0 <= 0)
+				begin
+				
+					delta_y0 = 408;
+					arrowgo = 1'b0;
+					
+				end
+				
+				// LEFTMOST 'left' arrow moving upwards
+				// triangle of the arrow
+				if	((VGA_Y >= (vposframe - (VGA_X - hpos3frame)) + 36 + delta_y0) && (VGA_Y <= (vposframe + (VGA_X - hpos3frame)) + 36 + delta_y0) &&	// upper/lower bounds of the triangle
+					(VGA_X >= (hpos3frame)) && (VGA_X <= (hpos3frame + 36)))	// left/right bounds of the triangle
+				begin
+					mRed = 10'b0000000000;
+					mGreen = 10'b1111111111;
+					mBlue = 10'b0000000000;
+				end
+				// square of the arrow
+				if	((VGA_Y >= (vposframe + 18 + delta_y0)) && (VGA_Y <= (vposframe + 54 + delta_y0)) &&	// upper/lower bounds of the square
+					(VGA_X >= (hpos3frame + 36)) && (VGA_X <= (hpos3frame + 72)))	// left/right bounds of the square
+				begin
+					mRed = 10'b0000000000;
+					mGreen = 10'b1111111111;
+					mBlue = 10'b0000000000;
+				end
+				
+			end
+			
+			
+			
+			
+			
+			
+			
+			//TEST ARROW
+			
+				// LEFTMOST 'left' arrow moving upwards
+				// triangle of the arrow
+				if	((VGA_Y >= (vposframe - (VGA_X - hpos3frame)) + 36 + 336) && (VGA_Y <= (vposframe + (VGA_X - hpos3frame)) + 36 + 336) &&	// upper/lower bounds of the triangle
+					(VGA_X >= (hpos3frame)) && (VGA_X <= (hpos3frame + 36)))	// left/right bounds of the triangle
+				begin
+					mRed = 10'b0000000000;
+					mGreen = 10'b1111111111;
+					mBlue = 10'b0000000000;
+				end
+				// square of the arrow
+				if	((VGA_Y >= (vposframe + 18 + 336)) && (VGA_Y <= (vposframe + 54 + 336)) &&	// upper/lower bounds of the square
+					(VGA_X >= (hpos3frame + 36)) && (VGA_X <= (hpos3frame + 72)))	// left/right bounds of the square
+				begin
+					mRed = 10'b0000000000;
+					mGreen = 10'b1111111111;
+					mBlue = 10'b0000000000;
+				end
+			
+			
+			
+			
+			
+		end
+			
+			
 			
 			
 			
@@ -249,58 +341,8 @@ VGA_Ctrl	controller	(	//	Host Side
 				end							
 				
 			end	
-			//Green arrow
-			if ((VGA_X >= 300) && (VGA_X <= 350) && 
-				(VGA_Y >= 200 ) && (VGA_Y <= 325 ))
-			begin
-				mRed   = 10'b0000000000;
-				mGreen = 10'b1111111111;
-				mBlue  = 10'b0000000000;
-			end 
-			
-			
-			if ((VGA_X >= 325) && (VGA_X <=375) && 
-				(VGA_Y >= (VGA_X - 360 )) && (VGA_Y <= 165 ))
-			begin
-				mRed   = 10'b0000000000;
-				mGreen = 10'b1111111111;
-				mBlue  = 10'b0011001100;
-			end 
-			if ((VGA_X >= 325) && (VGA_X <=375) && 
-				(VGA_Y >= (590 - (VGA_X) ) && (VGA_Y <= 165 )))
-			begin
-				mRed   = 10'b0000000000;
-				mGreen = 10'b1111111111;
-				mBlue  = 10'b0000000000;
-			end 
-			
-			//Green arrow
-			if ((VGA_X >= 450) && (VGA_X <= 500) && 
-				(VGA_Y >= 165 + delta_y) && (VGA_Y <= 325 + delta_y))
-			begin
-				mRed   = 10'b0000000000;
-				mGreen = 10'b1111111111;
-				mBlue  = 10'b0000000000;
-			end 
-			
-			
-			if ((VGA_X >= 475) && (VGA_X <=525) && 
-				(VGA_Y >= (VGA_X - 360 + delta_y)) && (VGA_Y <= 165 + delta_y))
-			begin
-				mRed   = 10'b0000000000;
-				mGreen = 10'b1111111111;
-				mBlue  = 10'b0011001100;
-			end 
-			if ((VGA_X >= 425) && (VGA_X <=475) && 
-				(VGA_Y >= (590 - (VGA_X) + delta_y) && (VGA_Y <= 165 + delta_y)))
-			begin
-				mRed   = 10'b0000000000;
-				mGreen = 10'b1111111111;
-				mBlue  = 10'b0000000000;
-			end 
 			*/
 			
-		end 		
 							
 endmodule
 

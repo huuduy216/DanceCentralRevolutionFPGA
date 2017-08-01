@@ -1,6 +1,6 @@
 Analysis & Synthesis report for DanceCentralRevolution
-Mon Jul 31 20:47:22 2017
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Tue Aug 01 14:40:57 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -15,18 +15,19 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: display:mainDisplay|VGA_Ctrl:controller
- 11. Port Connectivity Checks: "display:mainDisplay|VGA_Ctrl:controller"
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+ 10. Inverted Register Statistics
+ 11. Parameter Settings for User Entity Instance: display:mainDisplay|VGA_Ctrl:controller
+ 12. Port Connectivity Checks: "display:mainDisplay|VGA_Ctrl:controller"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -46,13 +47,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Jul 31 20:47:22 2017       ;
-; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Analysis & Synthesis Status     ; Successful - Tue Aug 01 14:40:57 2017       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DanceCentralRevolution                      ;
 ; Top-level Entity Name           ; DanceCentralRevolution                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 37                                          ;
+; Total registers                 ; 86                                          ;
 ; Total pins                      ; 34                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -170,42 +171,42 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
-; DanceCentralRevolution.v         ; yes             ; User Verilog HDL File        ; D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v ;         ;
-; display.v                        ; yes             ; Auto-Found Verilog HDL File  ; D:/Advanced Digital Circuit/DanceCentralRevolution/display.v                ;         ;
-; vga_ctrl.v                       ; yes             ; Auto-Found Verilog HDL File  ; D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v               ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                              ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; DanceCentralRevolution.v         ; yes             ; User Verilog HDL File        ; C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v ;         ;
+; display.v                        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v                ;         ;
+; vga_ctrl.v                       ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v               ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                      ;
-+---------------------------------------------+----------------------------------------------------+
-; Resource                                    ; Usage                                              ;
-+---------------------------------------------+----------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 378                                                ;
-;                                             ;                                                    ;
-; Combinational ALUT usage for logic          ; 663                                                ;
-;     -- 7 input functions                    ; 0                                                  ;
-;     -- 6 input functions                    ; 90                                                 ;
-;     -- 5 input functions                    ; 84                                                 ;
-;     -- 4 input functions                    ; 91                                                 ;
-;     -- <=3 input functions                  ; 398                                                ;
-;                                             ;                                                    ;
-; Dedicated logic registers                   ; 37                                                 ;
-;                                             ;                                                    ;
-; I/O pins                                    ; 34                                                 ;
-;                                             ;                                                    ;
-; Total DSP Blocks                            ; 0                                                  ;
-;                                             ;                                                    ;
-; Maximum fan-out node                        ; display:mainDisplay|VGA_Ctrl:controller|H_Cont[10] ;
-; Maximum fan-out                             ; 46                                                 ;
-; Total fan-out                               ; 2305                                               ;
-; Average fan-out                             ; 3.00                                               ;
-+---------------------------------------------+----------------------------------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 495       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 870       ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 117       ;
+;     -- 5 input functions                    ; 117       ;
+;     -- 4 input functions                    ; 143       ;
+;     -- <=3 input functions                  ; 493       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 86        ;
+;                                             ;           ;
+; I/O pins                                    ; 34        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 62        ;
+; Total fan-out                               ; 3225      ;
+; Average fan-out                             ; 3.15      ;
++---------------------------------------------+-----------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -213,23 +214,21 @@ agreement for further details.
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                             ; Entity Name            ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------+------------------------+--------------+
-; |DanceCentralRevolution     ; 663 (0)             ; 37 (0)                    ; 0                 ; 0          ; 34   ; 0            ; |DanceCentralRevolution                                         ; DanceCentralRevolution ; work         ;
-;    |display:mainDisplay|    ; 663 (594)           ; 37 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay                     ; display                ; work         ;
-;       |VGA_Ctrl:controller| ; 69 (69)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay|VGA_Ctrl:controller ; VGA_Ctrl               ; work         ;
+; |DanceCentralRevolution     ; 870 (0)             ; 86 (0)                    ; 0                 ; 0          ; 34   ; 0            ; |DanceCentralRevolution                                         ; DanceCentralRevolution ; work         ;
+;    |display:mainDisplay|    ; 870 (799)           ; 86 (62)                   ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay                     ; display                ; work         ;
+;       |VGA_Ctrl:controller| ; 71 (71)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay|VGA_Ctrl:controller ; VGA_Ctrl               ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; display:mainDisplay|mBlue[3,5,7,9]     ; Stuck at VCC due to stuck port data_in ;
-; display:mainDisplay|mGreen[3,5,7,9]    ; Stuck at VCC due to stuck port data_in ;
-; display:mainDisplay|mRed[3,5,7,9]      ; Stuck at VCC due to stuck port data_in ;
-; Total Number of Removed Registers = 12 ;                                        ;
-+----------------------------------------+----------------------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; display:mainDisplay|mGreen[3,5,7,9]   ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 4 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -237,14 +236,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 37    ;
-; Number of registers using Synchronous Clear  ; 22    ;
+; Total registers                              ; 86    ;
+; Number of registers using Synchronous Clear  ; 54    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 40    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; display:mainDisplay|delta_y0[4]        ; 2       ;
+; display:mainDisplay|delta_y0[6]        ; 3       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
 
 
 +--------------------------------------------------------------------------------------+
@@ -288,29 +298,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 37                          ;
+; arriav_ff             ; 86                          ;
+;     ENA               ; 8                           ;
+;     ENA SCLR          ; 32                          ;
 ;     SCLR              ; 22                          ;
-;     plain             ; 15                          ;
-; arriav_lcell_comb     ; 666                         ;
-;     arith             ; 403                         ;
-;         0 data inputs ; 10                          ;
-;         1 data inputs ; 340                         ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 48                          ;
-;         5 data inputs ; 1                           ;
-;     normal            ; 263                         ;
+;     plain             ; 24                          ;
+; arriav_lcell_comb     ; 873                         ;
+;     arith             ; 514                         ;
+;         0 data inputs ; 12                          ;
+;         1 data inputs ; 421                         ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 61                          ;
+;         5 data inputs ; 12                          ;
+;     normal            ; 359                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 26                          ;
-;         4 data inputs ; 43                          ;
-;         5 data inputs ; 83                          ;
-;         6 data inputs ; 90                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 26                          ;
+;         3 data inputs ; 24                          ;
+;         4 data inputs ; 82                          ;
+;         5 data inputs ; 105                         ;
+;         6 data inputs ; 117                         ;
 ; boundary_port         ; 34                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 12.20                       ;
-; Average LUT depth     ; 9.28                        ;
+; Max LUT depth         ; 14.00                       ;
+; Average LUT depth     ; 11.65                       ;
 +-----------------------+-----------------------------+
 
 
@@ -319,7 +331,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -328,58 +340,50 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Jul 31 20:47:10 2017
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Tue Aug 01 14:40:46 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DanceCentralRevolution -c DanceCentralRevolution
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file dancecentralrevolution.v
-    Info (12023): Found entity 1: DanceCentralRevolution File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
+    Info (12023): Found entity 1: DanceCentralRevolution File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
 Info (12127): Elaborating entity "DanceCentralRevolution" for the top level hierarchy
 Warning (12125): Using design file display.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: display File: D:/Advanced Digital Circuit/DanceCentralRevolution/display.v Line: 1
-Info (12128): Elaborating entity "display" for hierarchy "display:mainDisplay" File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at display.v(16): object "counter" assigned a value but never read File: D:/Advanced Digital Circuit/DanceCentralRevolution/display.v Line: 16
-Warning (10036): Verilog HDL or VHDL warning at display.v(16): object "movecounter" assigned a value but never read File: D:/Advanced Digital Circuit/DanceCentralRevolution/display.v Line: 16
-Warning (10036): Verilog HDL or VHDL warning at display.v(17): object "up" assigned a value but never read File: D:/Advanced Digital Circuit/DanceCentralRevolution/display.v Line: 17
-Warning (10036): Verilog HDL or VHDL warning at display.v(18): object "delta_y" assigned a value but never read File: D:/Advanced Digital Circuit/DanceCentralRevolution/display.v Line: 18
+    Info (12023): Found entity 1: display File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 1
+Info (12128): Elaborating entity "display" for hierarchy "display:mainDisplay" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at display.v(17): object "movecounter" assigned a value but never read File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at display.v(18): object "up" assigned a value but never read File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 18
+Warning (10230): Verilog HDL assignment warning at display.v(41): truncated value with size 32 to match size of target (8) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 41
+Warning (10230): Verilog HDL assignment warning at display.v(246): truncated value with size 32 to match size of target (8) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 246
+Warning (10230): Verilog HDL assignment warning at display.v(253): truncated value with size 32 to match size of target (8) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 253
 Warning (12125): Using design file vga_ctrl.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: VGA_Ctrl File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 1
-Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "display:mainDisplay|VGA_Ctrl:controller" File: D:/Advanced Digital Circuit/DanceCentralRevolution/display.v Line: 59
-Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(64): truncated value with size 32 to match size of target (22) File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 64
-Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(67): truncated value with size 32 to match size of target (11) File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 67
-Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(68): truncated value with size 32 to match size of target (11) File: D:/Advanced Digital Circuit/DanceCentralRevolution/vga_ctrl.v Line: 68
+    Info (12023): Found entity 1: VGA_Ctrl File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 1
+Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "display:mainDisplay|VGA_Ctrl:controller" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 68
+Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(64): truncated value with size 32 to match size of target (22) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 64
+Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(67): truncated value with size 32 to match size of target (11) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 67
+Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(68): truncated value with size 32 to match size of target (11) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 68
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_R[1]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_R[3]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_R[5]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_R[7]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[1]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[3]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[5]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_G[7]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_B[1]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_B[3]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_B[5]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (13410): Pin "VGA_B[7]" is stuck at VCC File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[1]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[3]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[5]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (13410): Pin "VGA_G[7]" is stuck at VCC File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "go_switch" File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (15610): No output dependent on input pin "pad[0]" File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (15610): No output dependent on input pin "pad[1]" File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (15610): No output dependent on input pin "pad[2]" File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-    Warning (15610): No output dependent on input pin "pad[3]" File: D:/Advanced Digital Circuit/DanceCentralRevolution/DanceCentralRevolution.v Line: 1
-Info (21057): Implemented 709 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "go_switch" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (15610): No output dependent on input pin "pad[0]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (15610): No output dependent on input pin "pad[1]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+    Warning (15610): No output dependent on input pin "pad[2]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
+Info (21057): Implemented 955 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 675 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
-    Info: Peak virtual memory: 684 megabytes
-    Info: Processing ended: Mon Jul 31 20:47:22 2017
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:25
+    Info (21061): Implemented 921 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 719 megabytes
+    Info: Processing ended: Tue Aug 01 14:40:57 2017
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:23
 
 

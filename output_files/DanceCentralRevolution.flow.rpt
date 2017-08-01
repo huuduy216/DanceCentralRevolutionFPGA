@@ -1,6 +1,6 @@
 Flow report for DanceCentralRevolution
-Mon Jul 31 20:48:35 2017
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Tue Aug 01 14:42:36 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -21,7 +21,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -41,15 +41,15 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Jul 31 20:48:28 2017       ;
-; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Flow Status                     ; Successful - Tue Aug 01 14:42:29 2017       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DanceCentralRevolution                      ;
 ; Top-level Entity Name           ; DanceCentralRevolution                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 377 / 32,070 ( 1 % )                        ;
-; Total registers                 ; 56                                          ;
+; Logic utilization (in ALMs)     ; 493 / 32,070 ( 2 % )                        ;
+; Total registers                 ; 107                                         ;
 ; Total pins                      ; 34 / 457 ( 7 % )                            ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                       ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+------------------------+
 ; Option            ; Setting                ;
 +-------------------+------------------------+
-; Start date & time ; 07/31/2017 20:47:11    ;
+; Start date & time ; 08/01/2017 14:40:46    ;
 ; Main task         ; Compilation            ;
 ; Revision Name     ; DanceCentralRevolution ;
 +-------------------+------------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 17912122462129.150154843101616         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 220295150424333.150161284618540        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -94,24 +94,24 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 684 MB              ; 00:00:25                           ;
-; Fitter                    ; 00:00:56     ; 1.0                     ; 2421 MB             ; 00:01:50                           ;
-; Assembler                 ; 00:00:07     ; 1.0                     ; 703 MB              ; 00:00:07                           ;
-; TimeQuest Timing Analyzer ; 00:00:06     ; 1.4                     ; 998 MB              ; 00:00:08                           ;
-; Total                     ; 00:01:21     ; --                      ; --                  ; 00:02:30                           ;
+; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 719 MB              ; 00:00:23                           ;
+; Fitter                    ; 00:01:22     ; 1.0                     ; 2587 MB             ; 00:02:47                           ;
+; Assembler                 ; 00:00:08     ; 1.0                     ; 725 MB              ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.4                     ; 1033 MB             ; 00:00:08                           ;
+; Total                     ; 00:01:48     ; --                      ; --                  ; 00:03:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                          ;
-+---------------------------+------------------+-------------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name     ; OS Version ; Processor type ;
-+---------------------------+------------------+-------------+------------+----------------+
-; Analysis & Synthesis      ; WITR90GMEWT      ; Windows 8.1 ; 6.3        ; x86_64         ;
-; Fitter                    ; WITR90GMEWT      ; Windows 8.1 ; 6.3        ; x86_64         ;
-; Assembler                 ; WITR90GMEWT      ; Windows 8.1 ; 6.3        ; x86_64         ;
-; TimeQuest Timing Analyzer ; WITR90GMEWT      ; Windows 8.1 ; 6.3        ; x86_64         ;
-+---------------------------+------------------+-------------+------------+----------------+
++-----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                         ;
++---------------------------+------------------+------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++---------------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis      ; WITPC0EF3P0      ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; WITPC0EF3P0      ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; WITPC0EF3P0      ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; WITPC0EF3P0      ; Windows 10 ; 10.0       ; x86_64         ;
++---------------------------+------------------+------------+------------+----------------+
 
 
 ------------
