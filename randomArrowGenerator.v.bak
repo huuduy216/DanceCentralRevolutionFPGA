@@ -1,0 +1,51 @@
+module randomArrowGenerator(input clk, output reg [3:0]arrowData)
+	reg counter;
+	integer dataSeed;
+	initial
+	begin
+		counter = 0;
+		dataSeed = 0;
+	end
+	always @ (posedge clk)
+	begin
+		//delay to generate new data every 0.5 second
+		counter = counter + 1;
+		if(counter > 25000000)
+		begin
+			counter = 0;
+			dataSeed = $urandom_range(8,0);
+			if(dataSeed == 2)
+			begin
+				arrowData = 4'b0010;
+			end
+			else if(dataSeed == 3)
+			begin
+				arrowData = 4'b0100;
+			end
+			else if(dataSeed == 4)
+			begin
+				arrowData = 4'b1000;
+			end
+			else if(dataSeed == 5)
+			begin
+				arrowData = 4'b1100;
+			end
+			else if(dataSeed == 6)
+			begin
+				arrowData = 4'b1010;
+			end
+			else if(dataSeed == 7)
+			begin
+				arrowData = 4'b0101;
+			end
+			else if(dataSeed == 8)
+			begin
+				arrowData = 4'b0011;
+			end
+			else
+			begin
+				arrowData = dataSeed;
+			end
+		end
+	end
+endmodule

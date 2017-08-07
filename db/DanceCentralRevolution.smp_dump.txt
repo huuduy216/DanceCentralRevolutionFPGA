@@ -1,0 +1,10 @@
+
+State Machine - |DanceCentralRevolution|ADC:adc|state
+Name state.CYCLE3 state.CYCLE2 state.CYCLE1 state.CYCLE0 state.QUIET2 state.QUIET1 state.QUIET0 
+state.QUIET0 0 0 0 0 0 0 0 
+state.QUIET1 0 0 0 0 0 1 1 
+state.QUIET2 0 0 0 0 1 0 1 
+state.CYCLE0 0 0 0 1 0 0 1 
+state.CYCLE1 0 0 1 0 0 0 1 
+state.CYCLE2 0 1 0 0 0 0 1 
+state.CYCLE3 1 0 0 0 0 0 1 
