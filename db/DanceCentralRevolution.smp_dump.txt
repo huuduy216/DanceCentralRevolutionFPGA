@@ -1,0 +1,24 @@
+
+State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valuer
+Name flash_valuer.0000 flash_valuer.0010 flash_valuer.0001 
+flash_valuer.0000 0 0 0 
+flash_valuer.0001 1 0 1 
+flash_valuer.0010 1 1 0 
+
+State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valueu
+Name flash_valueu.0000 flash_valueu.0010 flash_valueu.0001 
+flash_valueu.0000 0 0 0 
+flash_valueu.0001 1 0 1 
+flash_valueu.0010 1 1 0 
+
+State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valued
+Name flash_valued.0000 flash_valued.0010 flash_valued.0001 
+flash_valued.0000 0 0 0 
+flash_valued.0001 1 0 1 
+flash_valued.0010 1 1 0 
+
+State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valuel
+Name flash_valuel.0000 flash_valuel.0010 flash_valuel.0001 
+flash_valuel.0000 0 0 0 
+flash_valuel.0001 1 0 1 
+flash_valuel.0010 1 1 0 

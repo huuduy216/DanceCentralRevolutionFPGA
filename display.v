@@ -34,9 +34,14 @@ reg [31:0] counterr2;
 
 
 reg [2:0] left_active;
-reg [31:0] left_activecount0;
-reg flash_active;
-reg [31:0] flash_count;
+reg [2:0] down_active;
+reg [2:0] up_active;
+reg [2:0] right_active;
+
+reg [31:0] flash_countl;
+reg [31:0] flash_countd;
+reg [31:0] flash_countu;
+reg [31:0] flash_countr;
 
 
 reg [2:0] arrowgo_left;	//decides which of the three arrows should move upwards
@@ -57,6 +62,11 @@ reg [31:0] deltay_right0;
 reg [31:0] deltay_right1;
 reg [31:0] deltay_right2;
 
+reg [3:0] flash_valuel;
+reg [3:0] flash_valued;
+reg [3:0] flash_valueu;
+reg [3:0] flash_valuer;
+
 reg [31:0] vposframe;	// vertical coordinate for the arrow frames
 reg [31:0] hpos3frame;	// horizontal coordinate for the leftmost arrow frame
 reg [31:0] hpos2frame;	// horizontal coordinate for the left arrow frame
@@ -66,10 +76,11 @@ reg [31:0] hpos0frame;	// horizontal coordinate for the rightmost arrow frame
 initial 
 begin
 	left_active = 3'b000;
-	left_activecount0 = 0;
 	
-	flash_active = 0;
-	flash_count = 0;
+	flash_countl = 0;
+	flash_countd = 0;
+	flash_countu = 0;
+	flash_countr = 0;
 
 	testsig = 0;
 	testsigcount = 0;
@@ -136,11 +147,11 @@ VGA_Ctrl	controller	(	//	Host Side
 		
 			testsigcount = testsigcount + 1;
 			
-			if(testsigcount >= 250000000) begin	// 62500000
+			if(testsigcount >= 62500000) begin	// 62500000 short, 250000000 long
 			
 				testsig2 = testsig2 + 1;
 				//testsig = testsig2;
-				testsig[3] = 1;
+				testsig = 4'b1111;
 				testsigcount = 0;
 				
 			end
@@ -299,30 +310,63 @@ VGA_Ctrl	controller	(	//	Host Side
 			end
 			
 			
+
+			if(!(flash_valuel == 4'b0000)) begin	//flashes for a certain duration if a button is pressed
 			
-			if(flash_value | flash_active) begin
-				flash_active = 1;
-				flash_count = flashcount + 1;
+				flash_countl = flash_countl + 1;
 				
-				if(flash_value == 4'b0001) begin 
+				if(flash_valuel == 4'b0001) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 130) && (VGA_X < 236)) begin
+						mRed = 10'b1111111111;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countl = flash_countl + 1;
 					
+					if(flash_countl >= 30000000) begin
+					
+						flash_valuel = 4'b0000;
+						flash_countl = 0;
+						
+					end
+					
+				end
 				
-			
+				else if(flash_valuel == 4'b0010) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 130) && (VGA_X < 236)) begin
+						mRed = 10'b0000000000;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countl = flash_countl + 1;
+					
+					if(flash_countl >= 30000000) begin
+					
+						flash_valuel = 4'b0000;
+						flash_countl = 0;
+						
+					end
+					
+				end
 			
 			end
 			
 			
 			
 
-			if(arrowgo_left[0]) begin
-	
-				
+			if(arrowgo_left[0] & ((deltay_left0 < deltay_left1) & (deltay_left0 < deltay_left2)) & (flash_valuel == 4'b0000)) begin	// waits for the first Left arrow to trigger color flash
+																																											// and for this arrow to be the closest to the frame
+																																											// and for the previous flash to be done flashing
 				if(left_active[0]) begin
 				
 					
-					if((deltay_left0 < 130 && deltay_left0 >= 80) & !pad[3]) begin	// early, missed note
+					if((deltay_left0 < 300 && deltay_left0 >= 60) & !pad[3]) begin	// early, missed note
 					
-						if	((VGA_Y > 20) && (VGA_Y < 40) && (VGA_X > 20) && (VGA_X < 40)) begin
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 130) && (VGA_X < 236)) begin
 							mRed = 10'b1111111111;
 							mGreen = 10'b0000000000;
 							mBlue = 10'b0000000000;
@@ -330,26 +374,51 @@ VGA_Ctrl	controller	(	//	Host Side
 						
 						
 					end
-					else if((deltay_left0 < 80 && deltay_left0 >= 30) & !pad[3]) begin	// early note
-					
-						if	((VGA_Y > 20) && (VGA_Y < 40) && (VGA_X > 20) && (VGA_X < 40)) begin
-							mRed = 10'b1111111111;
-							mGreen = 10'b1111111111;
-							mBlue = 10'b0000000000;
-						end
+					else if((deltay_left0 < 60 && deltay_left0 >= 20) & !pad[3]) begin	// early note
 						
-						flash_value = 4'b0001;
+						left_active[0] = 1'b0;
+						flash_valuel = 4'b0001;
 						
 					end
-					else if((deltay_left0 < 30) & !pad[3]) begin	// on time note
+					else if((deltay_left0 < 20) & !pad[3]) begin	// on time note
 						
-						if	((VGA_Y > 20) && (VGA_Y < 40) && (VGA_X > 20) && (VGA_X < 40)) begin
-							mRed = 10'b0000000000;
-							mGreen = 10'b1111111111;
+						left_active[0] = 1'b0;
+						flash_valuel = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			if(arrowgo_left[1] & ((deltay_left1 < deltay_left0) & (deltay_left1 < deltay_left2)) & (flash_valuel == 4'b0000)) begin	// waits for a second Left arrow to trigger color flash
+	
+				
+				if(left_active[1]) begin
+				
+					
+					if((deltay_left1 < 300 && deltay_left1 >= 60) & !pad[3]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 130) && (VGA_X < 236)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
 							mBlue = 10'b0000000000;
 						end
 						
-						flash_value = 4'b0010;
+						
+					end
+					else if((deltay_left1 < 60 && deltay_left1 >= 20) & !pad[3]) begin	// early note
+						
+						left_active[1] = 1'b0;
+						flash_valuel = 4'b0001;
+						
+					end
+					else if((deltay_left1 < 20) & !pad[3]) begin	// on time note
+						
+						left_active[1] = 1'b0;
+						flash_valuel = 4'b0010;
 						
 					end
 					
@@ -361,17 +430,535 @@ VGA_Ctrl	controller	(	//	Host Side
 			
 			
 			
+			if(arrowgo_left[2] & ((deltay_left2 < deltay_left0) & (deltay_left0 < deltay_left1)) & (flash_valuel == 4'b0000)) begin	// waits for a third Left arrow to trigger color flash
+	
+				
+				if(left_active[2]) begin
+				
+					
+					if((deltay_left2 < 300 && deltay_left2 >= 60) & !pad[3]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 130) && (VGA_X < 236)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_left2 < 60 && deltay_left2 >= 20) & !pad[3]) begin	// early note
+						
+						left_active[2] = 1'b0;
+						flash_valuel = 4'b0001;
+						
+					end
+					else if((deltay_left2 < 20) & !pad[3]) begin	// on time note
+						
+						left_active[2] = 1'b0;
+						flash_valuel = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			////////START
+			
+			if(!(flash_valued == 4'b0000)) begin	//flashes for a certain duration if a button is pressed
+			
+				flash_countd = flash_countd + 1;
+				
+				if(flash_valued == 4'b0001) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 228) && (VGA_X < 321)) begin
+						mRed = 10'b1111111111;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countd = flash_countd + 1;
+					
+					if(flash_countd >= 30000000) begin
+					
+						flash_valued = 4'b0000;
+						flash_countd = 0;
+						
+					end
+					
+				end
+				
+				else if(flash_valued == 4'b0010) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 228) && (VGA_X < 321)) begin
+						mRed = 10'b0000000000;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countd = flash_countd + 1;
+					
+					if(flash_countd >= 30000000) begin
+					
+						flash_valued = 4'b0000;
+						flash_countd = 0;
+						
+					end
+					
+				end
+			
+			end
+			
+			
+			
+			
+
+			if(arrowgo_down[0] & ((deltay_down0 < deltay_down1) & (deltay_down0 < deltay_down2)) & (flash_valued == 4'b0000)) begin	// waits for the first Left arrow to trigger color flash
+																																											// and for this arrow to be the closest to the frame
+																																											// and for the previous flash to be done flashing
+				if(down_active[0]) begin
+				
+					
+					if((deltay_down0 < 300 && deltay_down0 >= 60) & !pad[2]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 228) && (VGA_X < 321)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_down0 < 60 && deltay_down0 >= 20) & !pad[2]) begin	// early note
+						
+						down_active[0] = 1'b0;
+						flash_valued = 4'b0001;
+						
+					end
+					else if((deltay_down0 < 20) & !pad[2]) begin	// on time note
+						
+						down_active[0] = 1'b0;
+						flash_valued = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			if(arrowgo_down[1] & ((deltay_down1 < deltay_down0) & (deltay_down1 < deltay_down2)) & (flash_valued == 4'b0000)) begin	// waits for a second Left arrow to trigger color flash
+	
+				
+				if(down_active[1]) begin
+				
+					
+					if((deltay_down1 < 300 && deltay_down1 >= 60) & !pad[2]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 228) && (VGA_X < 321)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_down1 < 60 && deltay_down1 >= 20) & !pad[2]) begin	// early note
+						
+						down_active[1] = 1'b0;
+						flash_valued = 4'b0001;
+						
+					end
+					else if((deltay_down1 < 20) & !pad[2]) begin	// on time note
+						
+						down_active[1] = 1'b0;
+						flash_valued = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			
+			
+			if(arrowgo_down[2] & ((deltay_down2 < deltay_down0) & (deltay_down0 < deltay_down1)) & (flash_valued == 4'b0000)) begin	// waits for a third Left arrow to trigger color flash
+	
+				
+				if(down_active[2]) begin
+				
+					
+					if((deltay_down2 < 300 && deltay_down2 >= 60) & !pad[2]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 228) && (VGA_X < 321)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_down2 < 60 && deltay_down2 >= 20) & !pad[2]) begin	// early note
+						
+						down_active[2] = 1'b0;
+						flash_valued = 4'b0001;
+						
+					end
+					else if((deltay_down2 < 20) & !pad[2]) begin	// on time note
+						
+						down_active[2] = 1'b0;
+						flash_valued = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			
+			//////////////////////
+			
+			
+			
+			if(!(flash_valueu == 4'b0000)) begin	//flashes for a certain duration if a button is pressed
+			
+				flash_countu = flash_countu + 1;
+				
+				if(flash_valueu == 4'b0001) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 320) && (VGA_X < 413)) begin
+						mRed = 10'b1111111111;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countu = flash_countu + 1;
+					
+					if(flash_countu >= 30000000) begin
+					
+						flash_valueu = 4'b0000;
+						flash_countu = 0;
+						
+					end
+					
+				end
+				
+				else if(flash_valueu == 4'b0010) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 320) && (VGA_X < 413)) begin
+						mRed = 10'b0000000000;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countu = flash_countu + 1;
+					
+					if(flash_countu >= 30000000) begin
+					
+						flash_valueu = 4'b0000;
+						flash_countu = 0;
+						
+					end
+					
+				end
+			
+			end
+			
+			
+			
+			
+
+			if(arrowgo_up[0] & ((deltay_up0 < deltay_up1) & (deltay_up0 < deltay_up2)) & (flash_valueu == 4'b0000)) begin	// waits for the first Left arrow to trigger color flash
+																																											// and for this arrow to be the closest to the frame
+																																											// and for the previous flash to be done flashing
+				if(up_active[0]) begin
+				
+					
+					if((deltay_up0 < 300 && deltay_up0 >= 60) & !pad[1]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 320) && (VGA_X < 413)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_up0 < 60 && deltay_up0 >= 20) & !pad[1]) begin	// early note
+						
+						up_active[0] = 1'b0;
+						flash_valueu = 4'b0001;
+						
+					end
+					else if((deltay_up0 < 20) & !pad[1]) begin	// on time note
+						
+						up_active[0] = 1'b0;
+						flash_valueu = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			if(arrowgo_up[1] & ((deltay_up1 < deltay_up0) & (deltay_up1 < deltay_up2)) & (flash_valueu == 4'b0000)) begin	// waits for a second Left arrow to trigger color flash
+	
+				
+				if(up_active[1]) begin
+				
+					
+					if((deltay_up1 < 300 && deltay_up1 >= 60) & !pad[1]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 320) && (VGA_X < 413)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_up1 < 60 && deltay_up1 >= 15) & !pad[1]) begin	// early note
+						
+						up_active[1] = 1'b0;
+						flash_valueu = 4'b0001;
+						
+					end
+					else if((deltay_up1 < 15) & !pad[1]) begin	// on time note
+						
+						up_active[1] = 1'b0;
+						flash_valueu = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			
+			
+			if(arrowgo_up[2] & ((deltay_up2 < deltay_up0) & (deltay_up0 < deltay_up1)) & (flash_valueu == 4'b0000)) begin	// waits for a third Left arrow to trigger color flash
+	
+				
+				if(up_active[2]) begin
+				
+					
+					if((deltay_up2 < 300 && deltay_up2 >= 60) & !pad[1]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 320) && (VGA_X < 413)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_up2 < 60 && deltay_up2 >= 20) & !pad[1]) begin	// early note
+						
+						up_active[2] = 1'b0;
+						flash_valueu = 4'b0001;
+						
+					end
+					else if((deltay_up2 < 20) & !pad[1]) begin	// on time note
+						
+						up_active[2] = 1'b0;
+						flash_valueu = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			
+			///////////////
+			
+			
+			
+			if(!(flash_valuer == 4'b0000)) begin	//flashes for a certain duration if a button is pressed
+			
+				flash_countr = flash_countr + 1;
+				
+				if(flash_valuer == 4'b0001) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 412) && (VGA_X < 504)) begin
+						mRed = 10'b1111111111;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countr = flash_countr + 1;
+					
+					if(flash_countr >= 30000000) begin
+					
+						flash_valuer = 4'b0000;
+						flash_countr = 0;
+						
+					end
+					
+				end
+				
+				else if(flash_valuer == 4'b0010) begin 
+				
+					if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 412) && (VGA_X < 504)) begin
+						mRed = 10'b0000000000;
+						mGreen = 10'b1111111111;
+						mBlue = 10'b0000000000;
+					end
+				
+					flash_countr = flash_countr + 1;
+					
+					if(flash_countr >= 30000000) begin
+					
+						flash_valuer = 4'b0000;
+						flash_countr = 0;
+						
+					end
+					
+				end
+			
+			end
+			
+			
+			
+			
+
+			if(arrowgo_right[0] & ((deltay_right0 < deltay_right1) & (deltay_right0 < deltay_right2)) & (flash_valuer == 4'b0000)) begin	// waits for the first Left arrow to trigger color flash
+																																											// and for this arrow to be the closest to the frame
+																																											// and for the previous flash to be done flashing
+				if(right_active[0]) begin
+				
+					
+					if((deltay_right0 < 300 && deltay_right0 >= 60) & !pad[0]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 412) && (VGA_X < 504)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_right0 < 60 && deltay_right0 >= 20) & !pad[0]) begin	// early note
+						
+						right_active[0] = 1'b0;
+						flash_valuer = 4'b0001;
+						
+					end
+					else if((deltay_right0 < 20) & !pad[0]) begin	// on time note
+						
+						right_active[0] = 1'b0;
+						flash_valuer = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			if(arrowgo_right[1] & ((deltay_right1 < deltay_right0) & (deltay_right1 < deltay_right2)) & (flash_valuer == 4'b0000)) begin	// waits for a second Left arrow to trigger color flash
+	
+				
+				if(right_active[1]) begin
+				
+					
+					if((deltay_right1 < 300 && deltay_right1 >= 60) & !pad[0]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 412) && (VGA_X < 504)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_right1 < 60 && deltay_right1 >= 20) & !pad[0]) begin	// early note
+						
+						right_active[1] = 1'b0;
+						flash_valuer = 4'b0001;
+						
+					end
+					else if((deltay_right1 < 20) & !pad[0]) begin	// on time note
+						
+						right_active[1] = 1'b0;
+						flash_valuer = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			
+			
+			if(arrowgo_right[2] & ((deltay_right2 < deltay_right0) & (deltay_right0 < deltay_right1)) & (flash_valuer == 4'b0000)) begin	// waits for a third Left arrow to trigger color flash
+	
+				
+				if(right_active[2]) begin
+				
+					
+					if((deltay_right2 < 300 && deltay_right2 >= 60) & !pad[0]) begin	// early, missed note
+					
+						if	((VGA_Y > 0) && (VGA_Y < 20) && (VGA_X > 412) && (VGA_X < 504)) begin
+							mRed = 10'b1111111111;
+							mGreen = 10'b0000000000;
+							mBlue = 10'b0000000000;
+						end
+						
+						
+					end
+					else if((deltay_right2 < 60 && deltay_right2 >= 20) & !pad[0]) begin	// early note
+						
+						right_active[2] = 1'b0;
+						flash_valuer = 4'b0001;
+						
+					end
+					else if((deltay_right2 < 20) & !pad[0]) begin	// on time note
+						
+						right_active[2] = 1'b0;
+						flash_valuer = 4'b0010;
+						
+					end
+					
+				end
+				
+			end
+			
+			
+			
+			
+			//////END
+			
+			
+			
 			if(testsig[3]) begin	// sends out the correct arrow depending on which ones are already active
 				
 				if(!arrowgo_left[0]) begin
-					arrowgo_left[0] = 1'b1;
-					left_active[0] = 1;
+					arrowgo_left[0] = 1'b1; // starts the arrow going upwards
+					left_active[0] = 1;		// begins to listen to button presses
 				end
 				else if(!arrowgo_left[1]) begin
 					arrowgo_left[1] = 1'b1;
+					left_active[1] = 1;
 				end
 				else if(!arrowgo_left[2]) begin
 					arrowgo_left[2] = 1'b1;
+					left_active[2] = 1;
 				end
 			
 				testsig[3] = 1'b0;
@@ -383,12 +970,15 @@ VGA_Ctrl	controller	(	//	Host Side
 				
 				if(!arrowgo_down[0]) begin
 					arrowgo_down[0] = 1'b1;
+					down_active[0] = 1;
 				end
 				else if(!arrowgo_down[1]) begin
 					arrowgo_down[1] = 1'b1;
+					down_active[1] = 1;
 				end
 				else if(!arrowgo_down[2]) begin
 					arrowgo_down[2] = 1'b1;
+					down_active[1] = 1;
 				end
 			
 				testsig[2] = 1'b0;
@@ -400,12 +990,15 @@ VGA_Ctrl	controller	(	//	Host Side
 				
 				if(!arrowgo_up[0]) begin
 					arrowgo_up[0] = 1'b1;
+					up_active[0] = 1;
 				end
 				else if(!arrowgo_up[1]) begin
 					arrowgo_up[1] = 1'b1;
+					up_active[1] = 1;
 				end
 				else if(!arrowgo_up[2]) begin
 					arrowgo_up[2] = 1'b1;
+					up_active[2] = 1;
 				end
 			
 				testsig[1] = 1'b0;
@@ -417,12 +1010,15 @@ VGA_Ctrl	controller	(	//	Host Side
 				
 				if(!arrowgo_right[0]) begin
 					arrowgo_right[0] = 1'b1;
+					right_active[0] = 1;
 				end
 				else if(!arrowgo_right[1]) begin
 					arrowgo_right[1] = 1'b1;
+					right_active[1] = 1;
 				end
 				else if(!arrowgo_right[2]) begin
 					arrowgo_right[2] = 1'b1;
+					right_active[2] = 1;
 				end
 			
 				testsig[0] = 1'b0;
@@ -434,7 +1030,10 @@ VGA_Ctrl	controller	(	//	Host Side
 			
 			
 			
-			if(arrowgo_left[0]) begin
+			
+			
+			
+			if(arrowgo_left[0]) begin	// sends an arrow upwards
 			
 				counterl0 = counterl0 + 1;
 				

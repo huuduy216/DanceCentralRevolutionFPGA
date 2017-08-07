@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DanceCentralRevolution
-Thu Aug 03 18:59:44 2017
+Mon Aug 07 17:03:50 2017
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -13,16 +13,19 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: display:mainDisplay|VGA_Ctrl:controller
- 14. Port Connectivity Checks: "display:mainDisplay|VGA_Ctrl:controller"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  8. State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valuer
+  9. State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valueu
+ 10. State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valued
+ 11. State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valuel
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: display:mainDisplay|VGA_Ctrl:controller
+ 17. Port Connectivity Checks: "display:mainDisplay|VGA_Ctrl:controller"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -49,13 +52,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Aug 03 18:59:44 2017       ;
+; Analysis & Synthesis Status     ; Successful - Mon Aug 07 17:03:50 2017       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DanceCentralRevolution                      ;
 ; Top-level Entity Name           ; DanceCentralRevolution                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 277                                         ;
+; Total registers                 ; 615                                         ;
 ; Total pins                      ; 38                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -169,9 +172,9 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -191,25 +194,25 @@ agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 994       ;
+; Estimate of Logic utilization (ALMs needed) ; 3306      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 1657      ;
-;     -- 7 input functions                    ; 2         ;
-;     -- 6 input functions                    ; 327       ;
-;     -- 5 input functions                    ; 311       ;
-;     -- 4 input functions                    ; 307       ;
-;     -- <=3 input functions                  ; 710       ;
+; Combinational ALUT usage for logic          ; 5834      ;
+;     -- 7 input functions                    ; 3         ;
+;     -- 6 input functions                    ; 773       ;
+;     -- 5 input functions                    ; 1044      ;
+;     -- 4 input functions                    ; 1412      ;
+;     -- <=3 input functions                  ; 2602      ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 277       ;
+; Dedicated logic registers                   ; 615       ;
 ;                                             ;           ;
 ; I/O pins                                    ; 38        ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 253       ;
-; Total fan-out                               ; 7586      ;
-; Average fan-out                             ; 3.77      ;
+; Maximum fan-out                             ; 591       ;
+; Total fan-out                               ; 24632     ;
+; Average fan-out                             ; 3.78      ;
 +---------------------------------------------+-----------+
 
 
@@ -218,11 +221,59 @@ agreement for further details.
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                             ; Entity Name            ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------+------------------------+--------------+
-; |DanceCentralRevolution     ; 1657 (0)            ; 277 (0)                   ; 0                 ; 0          ; 38   ; 0            ; |DanceCentralRevolution                                         ; DanceCentralRevolution ; work         ;
-;    |display:mainDisplay|    ; 1657 (1584)         ; 277 (253)                 ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay                     ; display                ; work         ;
-;       |VGA_Ctrl:controller| ; 73 (73)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay|VGA_Ctrl:controller ; VGA_Ctrl               ; work         ;
+; |DanceCentralRevolution     ; 5834 (0)            ; 615 (0)                   ; 0                 ; 0          ; 38   ; 0            ; |DanceCentralRevolution                                         ; DanceCentralRevolution ; work         ;
+;    |display:mainDisplay|    ; 5834 (5759)         ; 615 (591)                 ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay                     ; display                ; work         ;
+;       |VGA_Ctrl:controller| ; 75 (75)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |DanceCentralRevolution|display:mainDisplay|VGA_Ctrl:controller ; VGA_Ctrl               ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valuer      ;
++-------------------+-------------------+-------------------+-------------------+
+; Name              ; flash_valuer.0000 ; flash_valuer.0010 ; flash_valuer.0001 ;
++-------------------+-------------------+-------------------+-------------------+
+; flash_valuer.0000 ; 0                 ; 0                 ; 0                 ;
+; flash_valuer.0001 ; 1                 ; 0                 ; 1                 ;
+; flash_valuer.0010 ; 1                 ; 1                 ; 0                 ;
++-------------------+-------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valueu      ;
++-------------------+-------------------+-------------------+-------------------+
+; Name              ; flash_valueu.0000 ; flash_valueu.0010 ; flash_valueu.0001 ;
++-------------------+-------------------+-------------------+-------------------+
+; flash_valueu.0000 ; 0                 ; 0                 ; 0                 ;
+; flash_valueu.0001 ; 1                 ; 0                 ; 1                 ;
+; flash_valueu.0010 ; 1                 ; 1                 ; 0                 ;
++-------------------+-------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valued      ;
++-------------------+-------------------+-------------------+-------------------+
+; Name              ; flash_valued.0000 ; flash_valued.0010 ; flash_valued.0001 ;
++-------------------+-------------------+-------------------+-------------------+
+; flash_valued.0000 ; 0                 ; 0                 ; 0                 ;
+; flash_valued.0001 ; 1                 ; 0                 ; 1                 ;
+; flash_valued.0010 ; 1                 ; 1                 ; 0                 ;
++-------------------+-------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |DanceCentralRevolution|display:mainDisplay|flash_valuel      ;
++-------------------+-------------------+-------------------+-------------------+
+; Name              ; flash_valuel.0000 ; flash_valuel.0010 ; flash_valuel.0001 ;
++-------------------+-------------------+-------------------+-------------------+
+; flash_valuel.0000 ; 0                 ; 0                 ; 0                 ;
+; flash_valuel.0001 ; 1                 ; 0                 ; 1                 ;
+; flash_valuel.0010 ; 1                 ; 1                 ; 0                 ;
++-------------------+-------------------+-------------------+-------------------+
 
 
 +--------------------------------------------------------------------------------------------+
@@ -231,566 +282,414 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Register name                           ; Reason for Removal                               ;
 +-----------------------------------------+--------------------------------------------------+
 ; display:mainDisplay|testsig[0..3]       ; Stuck at GND due to stuck port data_in           ;
-; display:mainDisplay|deltay_down1[1]     ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_down2[1]     ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_right0[1]    ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_right1[1]    ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_right2[1]    ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_up0[1]       ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_up1[1]       ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_up2[1]       ; Merged with display:mainDisplay|deltay_down0[1]  ;
-; display:mainDisplay|deltay_down1[0]     ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_down2[0]     ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_right0[0]    ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_right1[0]    ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_right2[0]    ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_up0[0]       ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_up1[0]       ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_up2[0]       ; Merged with display:mainDisplay|deltay_down0[0]  ;
-; display:mainDisplay|deltay_down1[2]     ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_down2[2]     ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_right0[2]    ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_right1[2]    ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_right2[2]    ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_up0[2]       ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_up1[2]       ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_up2[2]       ; Merged with display:mainDisplay|deltay_down0[2]  ;
-; display:mainDisplay|deltay_down1[3]     ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_down2[3]     ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_right0[3]    ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_right1[3]    ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_right2[3]    ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_up0[3]       ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_up1[3]       ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_up2[3]       ; Merged with display:mainDisplay|deltay_down0[3]  ;
-; display:mainDisplay|deltay_down1[4]     ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_down2[4]     ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_right0[4]    ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_right1[4]    ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_right2[4]    ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_up0[4]       ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_up1[4]       ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_up2[4]       ; Merged with display:mainDisplay|deltay_down0[4]  ;
-; display:mainDisplay|deltay_down1[5]     ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_down2[5]     ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_right0[5]    ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_right1[5]    ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_right2[5]    ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_up0[5]       ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_up1[5]       ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_up2[5]       ; Merged with display:mainDisplay|deltay_down0[5]  ;
-; display:mainDisplay|deltay_down1[6]     ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_down2[6]     ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_right0[6]    ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_right1[6]    ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_right2[6]    ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_up0[6]       ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_up1[6]       ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_up2[6]       ; Merged with display:mainDisplay|deltay_down0[6]  ;
-; display:mainDisplay|deltay_down1[7]     ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_down2[7]     ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_right0[7]    ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_right1[7]    ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_right2[7]    ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_up0[7]       ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_up1[7]       ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_up2[7]       ; Merged with display:mainDisplay|deltay_down0[7]  ;
-; display:mainDisplay|deltay_down1[8]     ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_down2[8]     ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_right0[8]    ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_right1[8]    ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_right2[8]    ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_up0[8]       ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_up1[8]       ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_up2[8]       ; Merged with display:mainDisplay|deltay_down0[8]  ;
-; display:mainDisplay|deltay_down1[9]     ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_down2[9]     ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_right0[9]    ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_right1[9]    ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_right2[9]    ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_up0[9]       ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_up1[9]       ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_up2[9]       ; Merged with display:mainDisplay|deltay_down0[9]  ;
-; display:mainDisplay|deltay_down1[10]    ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_down2[10]    ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_right0[10]   ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_right1[10]   ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_right2[10]   ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_up0[10]      ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_up1[10]      ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_up2[10]      ; Merged with display:mainDisplay|deltay_down0[10] ;
-; display:mainDisplay|deltay_down1[11]    ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_down2[11]    ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_right0[11]   ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_right1[11]   ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_right2[11]   ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_up0[11]      ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_up1[11]      ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_up2[11]      ; Merged with display:mainDisplay|deltay_down0[11] ;
-; display:mainDisplay|deltay_down1[12]    ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_down2[12]    ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_right0[12]   ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_right1[12]   ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_right2[12]   ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_up0[12]      ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_up1[12]      ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_up2[12]      ; Merged with display:mainDisplay|deltay_down0[12] ;
-; display:mainDisplay|deltay_down1[13]    ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_down2[13]    ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_right0[13]   ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_right1[13]   ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_right2[13]   ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_up0[13]      ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_up1[13]      ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_up2[13]      ; Merged with display:mainDisplay|deltay_down0[13] ;
-; display:mainDisplay|deltay_down1[14]    ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_down2[14]    ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_right0[14]   ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_right1[14]   ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_right2[14]   ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_up0[14]      ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_up1[14]      ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_up2[14]      ; Merged with display:mainDisplay|deltay_down0[14] ;
-; display:mainDisplay|deltay_down1[15]    ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_down2[15]    ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_right0[15]   ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_right1[15]   ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_right2[15]   ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_up0[15]      ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_up1[15]      ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_up2[15]      ; Merged with display:mainDisplay|deltay_down0[15] ;
-; display:mainDisplay|deltay_down1[16]    ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_down2[16]    ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_right0[16]   ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_right1[16]   ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_right2[16]   ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_up0[16]      ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_up1[16]      ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_up2[16]      ; Merged with display:mainDisplay|deltay_down0[16] ;
-; display:mainDisplay|deltay_down1[17]    ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_down2[17]    ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_right0[17]   ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_right1[17]   ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_right2[17]   ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_up0[17]      ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_up1[17]      ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_up2[17]      ; Merged with display:mainDisplay|deltay_down0[17] ;
-; display:mainDisplay|deltay_down1[18]    ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_down2[18]    ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_right0[18]   ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_right1[18]   ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_right2[18]   ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_up0[18]      ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_up1[18]      ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_up2[18]      ; Merged with display:mainDisplay|deltay_down0[18] ;
-; display:mainDisplay|deltay_down1[19]    ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_down2[19]    ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_right0[19]   ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_right1[19]   ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_right2[19]   ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_up0[19]      ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_up1[19]      ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_up2[19]      ; Merged with display:mainDisplay|deltay_down0[19] ;
-; display:mainDisplay|deltay_down1[20]    ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_down2[20]    ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_right0[20]   ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_right1[20]   ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_right2[20]   ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_up0[20]      ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_up1[20]      ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_up2[20]      ; Merged with display:mainDisplay|deltay_down0[20] ;
-; display:mainDisplay|deltay_down1[21]    ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_down2[21]    ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_right0[21]   ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_right1[21]   ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_right2[21]   ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_up0[21]      ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_up1[21]      ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_up2[21]      ; Merged with display:mainDisplay|deltay_down0[21] ;
-; display:mainDisplay|deltay_down1[22]    ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_down2[22]    ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_right0[22]   ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_right1[22]   ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_right2[22]   ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_up0[22]      ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_up1[22]      ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_up2[22]      ; Merged with display:mainDisplay|deltay_down0[22] ;
-; display:mainDisplay|deltay_down1[23]    ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_down2[23]    ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_right0[23]   ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_right1[23]   ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_right2[23]   ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_up0[23]      ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_up1[23]      ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_up2[23]      ; Merged with display:mainDisplay|deltay_down0[23] ;
-; display:mainDisplay|deltay_down1[24]    ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_down2[24]    ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_right0[24]   ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_right1[24]   ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_right2[24]   ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_up0[24]      ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_up1[24]      ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_up2[24]      ; Merged with display:mainDisplay|deltay_down0[24] ;
-; display:mainDisplay|deltay_down1[25]    ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_down2[25]    ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_right0[25]   ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_right1[25]   ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_right2[25]   ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_up0[25]      ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_up1[25]      ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_up2[25]      ; Merged with display:mainDisplay|deltay_down0[25] ;
-; display:mainDisplay|deltay_down1[26]    ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_down2[26]    ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_right0[26]   ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_right1[26]   ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_right2[26]   ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_up0[26]      ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_up1[26]      ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_up2[26]      ; Merged with display:mainDisplay|deltay_down0[26] ;
-; display:mainDisplay|deltay_down1[27]    ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_down2[27]    ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_right0[27]   ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_right1[27]   ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_right2[27]   ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_up0[27]      ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_up1[27]      ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_up2[27]      ; Merged with display:mainDisplay|deltay_down0[27] ;
-; display:mainDisplay|deltay_down1[28]    ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_down2[28]    ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_right0[28]   ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_right1[28]   ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_right2[28]   ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_up0[28]      ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_up1[28]      ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_up2[28]      ; Merged with display:mainDisplay|deltay_down0[28] ;
-; display:mainDisplay|deltay_down1[29]    ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_down2[29]    ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_right0[29]   ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_right1[29]   ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_right2[29]   ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_up0[29]      ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_up1[29]      ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_up2[29]      ; Merged with display:mainDisplay|deltay_down0[29] ;
-; display:mainDisplay|deltay_down1[30]    ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_down2[30]    ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_right0[30]   ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_right1[30]   ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_right2[30]   ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_up0[30]      ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_up1[30]      ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_up2[30]      ; Merged with display:mainDisplay|deltay_down0[30] ;
-; display:mainDisplay|deltay_down1[31]    ; Merged with display:mainDisplay|deltay_down0[31] ;
-; display:mainDisplay|deltay_down2[31]    ; Merged with display:mainDisplay|deltay_down0[31] ;
 ; display:mainDisplay|deltay_right0[31]   ; Merged with display:mainDisplay|deltay_down0[31] ;
-; display:mainDisplay|deltay_right1[31]   ; Merged with display:mainDisplay|deltay_down0[31] ;
-; display:mainDisplay|deltay_right2[31]   ; Merged with display:mainDisplay|deltay_down0[31] ;
 ; display:mainDisplay|deltay_up0[31]      ; Merged with display:mainDisplay|deltay_down0[31] ;
-; display:mainDisplay|deltay_up1[31]      ; Merged with display:mainDisplay|deltay_down0[31] ;
-; display:mainDisplay|deltay_up2[31]      ; Merged with display:mainDisplay|deltay_down0[31] ;
-; display:mainDisplay|counterd1[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
-; display:mainDisplay|counterd2[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
+; display:mainDisplay|deltay_right0[30]   ; Merged with display:mainDisplay|deltay_down0[30] ;
+; display:mainDisplay|deltay_up0[30]      ; Merged with display:mainDisplay|deltay_down0[30] ;
+; display:mainDisplay|deltay_right0[29]   ; Merged with display:mainDisplay|deltay_down0[29] ;
+; display:mainDisplay|deltay_up0[29]      ; Merged with display:mainDisplay|deltay_down0[29] ;
+; display:mainDisplay|deltay_right0[28]   ; Merged with display:mainDisplay|deltay_down0[28] ;
+; display:mainDisplay|deltay_up0[28]      ; Merged with display:mainDisplay|deltay_down0[28] ;
+; display:mainDisplay|deltay_right0[27]   ; Merged with display:mainDisplay|deltay_down0[27] ;
+; display:mainDisplay|deltay_up0[27]      ; Merged with display:mainDisplay|deltay_down0[27] ;
+; display:mainDisplay|deltay_right0[26]   ; Merged with display:mainDisplay|deltay_down0[26] ;
+; display:mainDisplay|deltay_up0[26]      ; Merged with display:mainDisplay|deltay_down0[26] ;
+; display:mainDisplay|deltay_right0[25]   ; Merged with display:mainDisplay|deltay_down0[25] ;
+; display:mainDisplay|deltay_up0[25]      ; Merged with display:mainDisplay|deltay_down0[25] ;
+; display:mainDisplay|deltay_right0[24]   ; Merged with display:mainDisplay|deltay_down0[24] ;
+; display:mainDisplay|deltay_up0[24]      ; Merged with display:mainDisplay|deltay_down0[24] ;
+; display:mainDisplay|deltay_right0[23]   ; Merged with display:mainDisplay|deltay_down0[23] ;
+; display:mainDisplay|deltay_up0[23]      ; Merged with display:mainDisplay|deltay_down0[23] ;
+; display:mainDisplay|deltay_right0[22]   ; Merged with display:mainDisplay|deltay_down0[22] ;
+; display:mainDisplay|deltay_up0[22]      ; Merged with display:mainDisplay|deltay_down0[22] ;
+; display:mainDisplay|deltay_right0[21]   ; Merged with display:mainDisplay|deltay_down0[21] ;
+; display:mainDisplay|deltay_up0[21]      ; Merged with display:mainDisplay|deltay_down0[21] ;
+; display:mainDisplay|deltay_right0[20]   ; Merged with display:mainDisplay|deltay_down0[20] ;
+; display:mainDisplay|deltay_up0[20]      ; Merged with display:mainDisplay|deltay_down0[20] ;
+; display:mainDisplay|deltay_right0[19]   ; Merged with display:mainDisplay|deltay_down0[19] ;
+; display:mainDisplay|deltay_up0[19]      ; Merged with display:mainDisplay|deltay_down0[19] ;
+; display:mainDisplay|deltay_right0[18]   ; Merged with display:mainDisplay|deltay_down0[18] ;
+; display:mainDisplay|deltay_up0[18]      ; Merged with display:mainDisplay|deltay_down0[18] ;
+; display:mainDisplay|deltay_right0[17]   ; Merged with display:mainDisplay|deltay_down0[17] ;
+; display:mainDisplay|deltay_up0[17]      ; Merged with display:mainDisplay|deltay_down0[17] ;
+; display:mainDisplay|deltay_right0[16]   ; Merged with display:mainDisplay|deltay_down0[16] ;
+; display:mainDisplay|deltay_up0[16]      ; Merged with display:mainDisplay|deltay_down0[16] ;
+; display:mainDisplay|deltay_right0[15]   ; Merged with display:mainDisplay|deltay_down0[15] ;
+; display:mainDisplay|deltay_up0[15]      ; Merged with display:mainDisplay|deltay_down0[15] ;
+; display:mainDisplay|deltay_right0[14]   ; Merged with display:mainDisplay|deltay_down0[14] ;
+; display:mainDisplay|deltay_up0[14]      ; Merged with display:mainDisplay|deltay_down0[14] ;
+; display:mainDisplay|deltay_right0[13]   ; Merged with display:mainDisplay|deltay_down0[13] ;
+; display:mainDisplay|deltay_up0[13]      ; Merged with display:mainDisplay|deltay_down0[13] ;
+; display:mainDisplay|deltay_right0[12]   ; Merged with display:mainDisplay|deltay_down0[12] ;
+; display:mainDisplay|deltay_up0[12]      ; Merged with display:mainDisplay|deltay_down0[12] ;
+; display:mainDisplay|deltay_right0[11]   ; Merged with display:mainDisplay|deltay_down0[11] ;
+; display:mainDisplay|deltay_up0[11]      ; Merged with display:mainDisplay|deltay_down0[11] ;
+; display:mainDisplay|deltay_right0[10]   ; Merged with display:mainDisplay|deltay_down0[10] ;
+; display:mainDisplay|deltay_up0[10]      ; Merged with display:mainDisplay|deltay_down0[10] ;
+; display:mainDisplay|deltay_right0[9]    ; Merged with display:mainDisplay|deltay_down0[9]  ;
+; display:mainDisplay|deltay_up0[9]       ; Merged with display:mainDisplay|deltay_down0[9]  ;
+; display:mainDisplay|deltay_right0[8]    ; Merged with display:mainDisplay|deltay_down0[8]  ;
+; display:mainDisplay|deltay_up0[8]       ; Merged with display:mainDisplay|deltay_down0[8]  ;
+; display:mainDisplay|deltay_right0[7]    ; Merged with display:mainDisplay|deltay_down0[7]  ;
+; display:mainDisplay|deltay_up0[7]       ; Merged with display:mainDisplay|deltay_down0[7]  ;
+; display:mainDisplay|deltay_right0[6]    ; Merged with display:mainDisplay|deltay_down0[6]  ;
+; display:mainDisplay|deltay_up0[6]       ; Merged with display:mainDisplay|deltay_down0[6]  ;
+; display:mainDisplay|deltay_right0[5]    ; Merged with display:mainDisplay|deltay_down0[5]  ;
+; display:mainDisplay|deltay_up0[5]       ; Merged with display:mainDisplay|deltay_down0[5]  ;
+; display:mainDisplay|deltay_right0[4]    ; Merged with display:mainDisplay|deltay_down0[4]  ;
+; display:mainDisplay|deltay_up0[4]       ; Merged with display:mainDisplay|deltay_down0[4]  ;
+; display:mainDisplay|deltay_right0[3]    ; Merged with display:mainDisplay|deltay_down0[3]  ;
+; display:mainDisplay|deltay_up0[3]       ; Merged with display:mainDisplay|deltay_down0[3]  ;
+; display:mainDisplay|deltay_right0[2]    ; Merged with display:mainDisplay|deltay_down0[2]  ;
+; display:mainDisplay|deltay_up0[2]       ; Merged with display:mainDisplay|deltay_down0[2]  ;
+; display:mainDisplay|deltay_right0[1]    ; Merged with display:mainDisplay|deltay_down0[1]  ;
+; display:mainDisplay|deltay_up0[1]       ; Merged with display:mainDisplay|deltay_down0[1]  ;
+; display:mainDisplay|deltay_right0[0]    ; Merged with display:mainDisplay|deltay_down0[0]  ;
+; display:mainDisplay|deltay_up0[0]       ; Merged with display:mainDisplay|deltay_down0[0]  ;
+; display:mainDisplay|deltay_right1[31]   ; Merged with display:mainDisplay|deltay_down1[31] ;
+; display:mainDisplay|deltay_up1[31]      ; Merged with display:mainDisplay|deltay_down1[31] ;
+; display:mainDisplay|deltay_right1[30]   ; Merged with display:mainDisplay|deltay_down1[30] ;
+; display:mainDisplay|deltay_up1[30]      ; Merged with display:mainDisplay|deltay_down1[30] ;
+; display:mainDisplay|deltay_right1[29]   ; Merged with display:mainDisplay|deltay_down1[29] ;
+; display:mainDisplay|deltay_up1[29]      ; Merged with display:mainDisplay|deltay_down1[29] ;
+; display:mainDisplay|deltay_right1[28]   ; Merged with display:mainDisplay|deltay_down1[28] ;
+; display:mainDisplay|deltay_up1[28]      ; Merged with display:mainDisplay|deltay_down1[28] ;
+; display:mainDisplay|deltay_right1[27]   ; Merged with display:mainDisplay|deltay_down1[27] ;
+; display:mainDisplay|deltay_up1[27]      ; Merged with display:mainDisplay|deltay_down1[27] ;
+; display:mainDisplay|deltay_right1[26]   ; Merged with display:mainDisplay|deltay_down1[26] ;
+; display:mainDisplay|deltay_up1[26]      ; Merged with display:mainDisplay|deltay_down1[26] ;
+; display:mainDisplay|deltay_right1[25]   ; Merged with display:mainDisplay|deltay_down1[25] ;
+; display:mainDisplay|deltay_up1[25]      ; Merged with display:mainDisplay|deltay_down1[25] ;
+; display:mainDisplay|deltay_right1[24]   ; Merged with display:mainDisplay|deltay_down1[24] ;
+; display:mainDisplay|deltay_up1[24]      ; Merged with display:mainDisplay|deltay_down1[24] ;
+; display:mainDisplay|deltay_right1[23]   ; Merged with display:mainDisplay|deltay_down1[23] ;
+; display:mainDisplay|deltay_up1[23]      ; Merged with display:mainDisplay|deltay_down1[23] ;
+; display:mainDisplay|deltay_right1[22]   ; Merged with display:mainDisplay|deltay_down1[22] ;
+; display:mainDisplay|deltay_up1[22]      ; Merged with display:mainDisplay|deltay_down1[22] ;
+; display:mainDisplay|deltay_right1[21]   ; Merged with display:mainDisplay|deltay_down1[21] ;
+; display:mainDisplay|deltay_up1[21]      ; Merged with display:mainDisplay|deltay_down1[21] ;
+; display:mainDisplay|deltay_right1[20]   ; Merged with display:mainDisplay|deltay_down1[20] ;
+; display:mainDisplay|deltay_up1[20]      ; Merged with display:mainDisplay|deltay_down1[20] ;
+; display:mainDisplay|deltay_right1[19]   ; Merged with display:mainDisplay|deltay_down1[19] ;
+; display:mainDisplay|deltay_up1[19]      ; Merged with display:mainDisplay|deltay_down1[19] ;
+; display:mainDisplay|deltay_right1[18]   ; Merged with display:mainDisplay|deltay_down1[18] ;
+; display:mainDisplay|deltay_up1[18]      ; Merged with display:mainDisplay|deltay_down1[18] ;
+; display:mainDisplay|deltay_right1[17]   ; Merged with display:mainDisplay|deltay_down1[17] ;
+; display:mainDisplay|deltay_up1[17]      ; Merged with display:mainDisplay|deltay_down1[17] ;
+; display:mainDisplay|deltay_right1[16]   ; Merged with display:mainDisplay|deltay_down1[16] ;
+; display:mainDisplay|deltay_up1[16]      ; Merged with display:mainDisplay|deltay_down1[16] ;
+; display:mainDisplay|deltay_right1[15]   ; Merged with display:mainDisplay|deltay_down1[15] ;
+; display:mainDisplay|deltay_up1[15]      ; Merged with display:mainDisplay|deltay_down1[15] ;
+; display:mainDisplay|deltay_right1[14]   ; Merged with display:mainDisplay|deltay_down1[14] ;
+; display:mainDisplay|deltay_up1[14]      ; Merged with display:mainDisplay|deltay_down1[14] ;
+; display:mainDisplay|deltay_right1[13]   ; Merged with display:mainDisplay|deltay_down1[13] ;
+; display:mainDisplay|deltay_up1[13]      ; Merged with display:mainDisplay|deltay_down1[13] ;
+; display:mainDisplay|deltay_right1[12]   ; Merged with display:mainDisplay|deltay_down1[12] ;
+; display:mainDisplay|deltay_up1[12]      ; Merged with display:mainDisplay|deltay_down1[12] ;
+; display:mainDisplay|deltay_right1[11]   ; Merged with display:mainDisplay|deltay_down1[11] ;
+; display:mainDisplay|deltay_up1[11]      ; Merged with display:mainDisplay|deltay_down1[11] ;
+; display:mainDisplay|deltay_right1[10]   ; Merged with display:mainDisplay|deltay_down1[10] ;
+; display:mainDisplay|deltay_up1[10]      ; Merged with display:mainDisplay|deltay_down1[10] ;
+; display:mainDisplay|deltay_right1[9]    ; Merged with display:mainDisplay|deltay_down1[9]  ;
+; display:mainDisplay|deltay_up1[9]       ; Merged with display:mainDisplay|deltay_down1[9]  ;
+; display:mainDisplay|deltay_right1[8]    ; Merged with display:mainDisplay|deltay_down1[8]  ;
+; display:mainDisplay|deltay_up1[8]       ; Merged with display:mainDisplay|deltay_down1[8]  ;
+; display:mainDisplay|deltay_right1[7]    ; Merged with display:mainDisplay|deltay_down1[7]  ;
+; display:mainDisplay|deltay_up1[7]       ; Merged with display:mainDisplay|deltay_down1[7]  ;
+; display:mainDisplay|deltay_right1[6]    ; Merged with display:mainDisplay|deltay_down1[6]  ;
+; display:mainDisplay|deltay_up1[6]       ; Merged with display:mainDisplay|deltay_down1[6]  ;
+; display:mainDisplay|deltay_right1[5]    ; Merged with display:mainDisplay|deltay_down1[5]  ;
+; display:mainDisplay|deltay_up1[5]       ; Merged with display:mainDisplay|deltay_down1[5]  ;
+; display:mainDisplay|deltay_right1[4]    ; Merged with display:mainDisplay|deltay_down1[4]  ;
+; display:mainDisplay|deltay_up1[4]       ; Merged with display:mainDisplay|deltay_down1[4]  ;
+; display:mainDisplay|deltay_right1[3]    ; Merged with display:mainDisplay|deltay_down1[3]  ;
+; display:mainDisplay|deltay_up1[3]       ; Merged with display:mainDisplay|deltay_down1[3]  ;
+; display:mainDisplay|deltay_right1[2]    ; Merged with display:mainDisplay|deltay_down1[2]  ;
+; display:mainDisplay|deltay_up1[2]       ; Merged with display:mainDisplay|deltay_down1[2]  ;
+; display:mainDisplay|deltay_right1[1]    ; Merged with display:mainDisplay|deltay_down1[1]  ;
+; display:mainDisplay|deltay_up1[1]       ; Merged with display:mainDisplay|deltay_down1[1]  ;
+; display:mainDisplay|deltay_right1[0]    ; Merged with display:mainDisplay|deltay_down1[0]  ;
+; display:mainDisplay|deltay_up1[0]       ; Merged with display:mainDisplay|deltay_down1[0]  ;
+; display:mainDisplay|deltay_right2[31]   ; Merged with display:mainDisplay|deltay_down2[31] ;
+; display:mainDisplay|deltay_up2[31]      ; Merged with display:mainDisplay|deltay_down2[31] ;
+; display:mainDisplay|deltay_right2[30]   ; Merged with display:mainDisplay|deltay_down2[30] ;
+; display:mainDisplay|deltay_up2[30]      ; Merged with display:mainDisplay|deltay_down2[30] ;
+; display:mainDisplay|deltay_right2[29]   ; Merged with display:mainDisplay|deltay_down2[29] ;
+; display:mainDisplay|deltay_up2[29]      ; Merged with display:mainDisplay|deltay_down2[29] ;
+; display:mainDisplay|deltay_right2[28]   ; Merged with display:mainDisplay|deltay_down2[28] ;
+; display:mainDisplay|deltay_up2[28]      ; Merged with display:mainDisplay|deltay_down2[28] ;
+; display:mainDisplay|deltay_right2[27]   ; Merged with display:mainDisplay|deltay_down2[27] ;
+; display:mainDisplay|deltay_up2[27]      ; Merged with display:mainDisplay|deltay_down2[27] ;
+; display:mainDisplay|deltay_right2[26]   ; Merged with display:mainDisplay|deltay_down2[26] ;
+; display:mainDisplay|deltay_up2[26]      ; Merged with display:mainDisplay|deltay_down2[26] ;
+; display:mainDisplay|deltay_right2[25]   ; Merged with display:mainDisplay|deltay_down2[25] ;
+; display:mainDisplay|deltay_up2[25]      ; Merged with display:mainDisplay|deltay_down2[25] ;
+; display:mainDisplay|deltay_right2[24]   ; Merged with display:mainDisplay|deltay_down2[24] ;
+; display:mainDisplay|deltay_up2[24]      ; Merged with display:mainDisplay|deltay_down2[24] ;
+; display:mainDisplay|deltay_right2[23]   ; Merged with display:mainDisplay|deltay_down2[23] ;
+; display:mainDisplay|deltay_up2[23]      ; Merged with display:mainDisplay|deltay_down2[23] ;
+; display:mainDisplay|deltay_right2[22]   ; Merged with display:mainDisplay|deltay_down2[22] ;
+; display:mainDisplay|deltay_up2[22]      ; Merged with display:mainDisplay|deltay_down2[22] ;
+; display:mainDisplay|deltay_right2[21]   ; Merged with display:mainDisplay|deltay_down2[21] ;
+; display:mainDisplay|deltay_up2[21]      ; Merged with display:mainDisplay|deltay_down2[21] ;
+; display:mainDisplay|deltay_right2[20]   ; Merged with display:mainDisplay|deltay_down2[20] ;
+; display:mainDisplay|deltay_up2[20]      ; Merged with display:mainDisplay|deltay_down2[20] ;
+; display:mainDisplay|deltay_right2[19]   ; Merged with display:mainDisplay|deltay_down2[19] ;
+; display:mainDisplay|deltay_up2[19]      ; Merged with display:mainDisplay|deltay_down2[19] ;
+; display:mainDisplay|deltay_right2[18]   ; Merged with display:mainDisplay|deltay_down2[18] ;
+; display:mainDisplay|deltay_up2[18]      ; Merged with display:mainDisplay|deltay_down2[18] ;
+; display:mainDisplay|deltay_right2[17]   ; Merged with display:mainDisplay|deltay_down2[17] ;
+; display:mainDisplay|deltay_up2[17]      ; Merged with display:mainDisplay|deltay_down2[17] ;
+; display:mainDisplay|deltay_right2[16]   ; Merged with display:mainDisplay|deltay_down2[16] ;
+; display:mainDisplay|deltay_up2[16]      ; Merged with display:mainDisplay|deltay_down2[16] ;
+; display:mainDisplay|deltay_right2[15]   ; Merged with display:mainDisplay|deltay_down2[15] ;
+; display:mainDisplay|deltay_up2[15]      ; Merged with display:mainDisplay|deltay_down2[15] ;
+; display:mainDisplay|deltay_right2[14]   ; Merged with display:mainDisplay|deltay_down2[14] ;
+; display:mainDisplay|deltay_up2[14]      ; Merged with display:mainDisplay|deltay_down2[14] ;
+; display:mainDisplay|deltay_right2[13]   ; Merged with display:mainDisplay|deltay_down2[13] ;
+; display:mainDisplay|deltay_up2[13]      ; Merged with display:mainDisplay|deltay_down2[13] ;
+; display:mainDisplay|deltay_right2[12]   ; Merged with display:mainDisplay|deltay_down2[12] ;
+; display:mainDisplay|deltay_up2[12]      ; Merged with display:mainDisplay|deltay_down2[12] ;
+; display:mainDisplay|deltay_right2[11]   ; Merged with display:mainDisplay|deltay_down2[11] ;
+; display:mainDisplay|deltay_up2[11]      ; Merged with display:mainDisplay|deltay_down2[11] ;
+; display:mainDisplay|deltay_right2[10]   ; Merged with display:mainDisplay|deltay_down2[10] ;
+; display:mainDisplay|deltay_up2[10]      ; Merged with display:mainDisplay|deltay_down2[10] ;
+; display:mainDisplay|deltay_right2[9]    ; Merged with display:mainDisplay|deltay_down2[9]  ;
+; display:mainDisplay|deltay_up2[9]       ; Merged with display:mainDisplay|deltay_down2[9]  ;
+; display:mainDisplay|deltay_right2[8]    ; Merged with display:mainDisplay|deltay_down2[8]  ;
+; display:mainDisplay|deltay_up2[8]       ; Merged with display:mainDisplay|deltay_down2[8]  ;
+; display:mainDisplay|deltay_right2[7]    ; Merged with display:mainDisplay|deltay_down2[7]  ;
+; display:mainDisplay|deltay_up2[7]       ; Merged with display:mainDisplay|deltay_down2[7]  ;
+; display:mainDisplay|deltay_right2[6]    ; Merged with display:mainDisplay|deltay_down2[6]  ;
+; display:mainDisplay|deltay_up2[6]       ; Merged with display:mainDisplay|deltay_down2[6]  ;
+; display:mainDisplay|deltay_right2[5]    ; Merged with display:mainDisplay|deltay_down2[5]  ;
+; display:mainDisplay|deltay_up2[5]       ; Merged with display:mainDisplay|deltay_down2[5]  ;
+; display:mainDisplay|deltay_right2[4]    ; Merged with display:mainDisplay|deltay_down2[4]  ;
+; display:mainDisplay|deltay_up2[4]       ; Merged with display:mainDisplay|deltay_down2[4]  ;
+; display:mainDisplay|deltay_right2[3]    ; Merged with display:mainDisplay|deltay_down2[3]  ;
+; display:mainDisplay|deltay_up2[3]       ; Merged with display:mainDisplay|deltay_down2[3]  ;
+; display:mainDisplay|deltay_right2[2]    ; Merged with display:mainDisplay|deltay_down2[2]  ;
+; display:mainDisplay|deltay_up2[2]       ; Merged with display:mainDisplay|deltay_down2[2]  ;
+; display:mainDisplay|deltay_right2[1]    ; Merged with display:mainDisplay|deltay_down2[1]  ;
+; display:mainDisplay|deltay_up2[1]       ; Merged with display:mainDisplay|deltay_down2[1]  ;
+; display:mainDisplay|deltay_right2[0]    ; Merged with display:mainDisplay|deltay_down2[0]  ;
+; display:mainDisplay|deltay_up2[0]       ; Merged with display:mainDisplay|deltay_down2[0]  ;
+; display:mainDisplay|arrowgo_right[0]    ; Merged with display:mainDisplay|arrowgo_down[0]  ;
+; display:mainDisplay|arrowgo_up[0]       ; Merged with display:mainDisplay|arrowgo_down[0]  ;
+; display:mainDisplay|arrowgo_right[1]    ; Merged with display:mainDisplay|arrowgo_down[1]  ;
+; display:mainDisplay|arrowgo_up[1]       ; Merged with display:mainDisplay|arrowgo_down[1]  ;
+; display:mainDisplay|arrowgo_right[2]    ; Merged with display:mainDisplay|arrowgo_down[2]  ;
+; display:mainDisplay|arrowgo_up[2]       ; Merged with display:mainDisplay|arrowgo_down[2]  ;
 ; display:mainDisplay|counterr0[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
-; display:mainDisplay|counterr1[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
-; display:mainDisplay|counterr2[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
 ; display:mainDisplay|counteru0[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
-; display:mainDisplay|counteru1[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
-; display:mainDisplay|counteru2[31]       ; Merged with display:mainDisplay|counterd0[31]    ;
-; display:mainDisplay|counterd1[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
-; display:mainDisplay|counterd2[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
 ; display:mainDisplay|counterr0[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
-; display:mainDisplay|counterr1[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
-; display:mainDisplay|counterr2[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
 ; display:mainDisplay|counteru0[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
-; display:mainDisplay|counteru1[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
-; display:mainDisplay|counteru2[30]       ; Merged with display:mainDisplay|counterd0[30]    ;
-; display:mainDisplay|counterd1[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
-; display:mainDisplay|counterd2[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
 ; display:mainDisplay|counterr0[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
-; display:mainDisplay|counterr1[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
-; display:mainDisplay|counterr2[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
 ; display:mainDisplay|counteru0[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
-; display:mainDisplay|counteru1[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
-; display:mainDisplay|counteru2[29]       ; Merged with display:mainDisplay|counterd0[29]    ;
-; display:mainDisplay|counterd1[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
-; display:mainDisplay|counterd2[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
 ; display:mainDisplay|counterr0[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
-; display:mainDisplay|counterr1[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
-; display:mainDisplay|counterr2[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
 ; display:mainDisplay|counteru0[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
-; display:mainDisplay|counteru1[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
-; display:mainDisplay|counteru2[28]       ; Merged with display:mainDisplay|counterd0[28]    ;
-; display:mainDisplay|counterd1[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
-; display:mainDisplay|counterd2[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
 ; display:mainDisplay|counterr0[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
-; display:mainDisplay|counterr1[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
-; display:mainDisplay|counterr2[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
 ; display:mainDisplay|counteru0[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
-; display:mainDisplay|counteru1[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
-; display:mainDisplay|counteru2[27]       ; Merged with display:mainDisplay|counterd0[27]    ;
-; display:mainDisplay|counterd1[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
-; display:mainDisplay|counterd2[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
 ; display:mainDisplay|counterr0[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
-; display:mainDisplay|counterr1[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
-; display:mainDisplay|counterr2[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
 ; display:mainDisplay|counteru0[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
-; display:mainDisplay|counteru1[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
-; display:mainDisplay|counteru2[26]       ; Merged with display:mainDisplay|counterd0[26]    ;
-; display:mainDisplay|counterd1[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
-; display:mainDisplay|counterd2[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
 ; display:mainDisplay|counterr0[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
-; display:mainDisplay|counterr1[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
-; display:mainDisplay|counterr2[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
 ; display:mainDisplay|counteru0[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
-; display:mainDisplay|counteru1[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
-; display:mainDisplay|counteru2[25]       ; Merged with display:mainDisplay|counterd0[25]    ;
-; display:mainDisplay|counterd1[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
-; display:mainDisplay|counterd2[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
 ; display:mainDisplay|counterr0[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
-; display:mainDisplay|counterr1[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
-; display:mainDisplay|counterr2[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
 ; display:mainDisplay|counteru0[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
-; display:mainDisplay|counteru1[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
-; display:mainDisplay|counteru2[24]       ; Merged with display:mainDisplay|counterd0[24]    ;
-; display:mainDisplay|counterd1[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
-; display:mainDisplay|counterd2[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
 ; display:mainDisplay|counterr0[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
-; display:mainDisplay|counterr1[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
-; display:mainDisplay|counterr2[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
 ; display:mainDisplay|counteru0[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
-; display:mainDisplay|counteru1[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
-; display:mainDisplay|counteru2[23]       ; Merged with display:mainDisplay|counterd0[23]    ;
-; display:mainDisplay|counterd1[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
-; display:mainDisplay|counterd2[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
 ; display:mainDisplay|counterr0[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
-; display:mainDisplay|counterr1[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
-; display:mainDisplay|counterr2[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
 ; display:mainDisplay|counteru0[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
-; display:mainDisplay|counteru1[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
-; display:mainDisplay|counteru2[22]       ; Merged with display:mainDisplay|counterd0[22]    ;
-; display:mainDisplay|counterd1[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
-; display:mainDisplay|counterd2[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
 ; display:mainDisplay|counterr0[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
-; display:mainDisplay|counterr1[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
-; display:mainDisplay|counterr2[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
 ; display:mainDisplay|counteru0[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
-; display:mainDisplay|counteru1[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
-; display:mainDisplay|counteru2[21]       ; Merged with display:mainDisplay|counterd0[21]    ;
-; display:mainDisplay|counterd1[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
-; display:mainDisplay|counterd2[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
 ; display:mainDisplay|counterr0[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
-; display:mainDisplay|counterr1[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
-; display:mainDisplay|counterr2[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
 ; display:mainDisplay|counteru0[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
-; display:mainDisplay|counteru1[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
-; display:mainDisplay|counteru2[20]       ; Merged with display:mainDisplay|counterd0[20]    ;
-; display:mainDisplay|counterd1[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
-; display:mainDisplay|counterd2[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
 ; display:mainDisplay|counterr0[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
-; display:mainDisplay|counterr1[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
-; display:mainDisplay|counterr2[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
 ; display:mainDisplay|counteru0[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
-; display:mainDisplay|counteru1[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
-; display:mainDisplay|counteru2[19]       ; Merged with display:mainDisplay|counterd0[19]    ;
-; display:mainDisplay|counterd1[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
-; display:mainDisplay|counterd2[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
 ; display:mainDisplay|counterr0[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
-; display:mainDisplay|counterr1[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
-; display:mainDisplay|counterr2[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
 ; display:mainDisplay|counteru0[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
-; display:mainDisplay|counteru1[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
-; display:mainDisplay|counteru2[18]       ; Merged with display:mainDisplay|counterd0[18]    ;
-; display:mainDisplay|counterd1[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
-; display:mainDisplay|counterd2[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
 ; display:mainDisplay|counterr0[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
-; display:mainDisplay|counterr1[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
-; display:mainDisplay|counterr2[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
 ; display:mainDisplay|counteru0[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
-; display:mainDisplay|counteru1[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
-; display:mainDisplay|counteru2[17]       ; Merged with display:mainDisplay|counterd0[17]    ;
-; display:mainDisplay|counterd1[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
-; display:mainDisplay|counterd2[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
 ; display:mainDisplay|counterr0[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
-; display:mainDisplay|counterr1[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
-; display:mainDisplay|counterr2[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
 ; display:mainDisplay|counteru0[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
-; display:mainDisplay|counteru1[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
-; display:mainDisplay|counteru2[16]       ; Merged with display:mainDisplay|counterd0[16]    ;
-; display:mainDisplay|counterd1[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
-; display:mainDisplay|counterd2[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
 ; display:mainDisplay|counterr0[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
-; display:mainDisplay|counterr1[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
-; display:mainDisplay|counterr2[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
 ; display:mainDisplay|counteru0[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
-; display:mainDisplay|counteru1[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
-; display:mainDisplay|counteru2[15]       ; Merged with display:mainDisplay|counterd0[15]    ;
-; display:mainDisplay|counterd1[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
-; display:mainDisplay|counterd2[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
 ; display:mainDisplay|counterr0[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
-; display:mainDisplay|counterr1[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
-; display:mainDisplay|counterr2[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
 ; display:mainDisplay|counteru0[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
-; display:mainDisplay|counteru1[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
-; display:mainDisplay|counteru2[14]       ; Merged with display:mainDisplay|counterd0[14]    ;
-; display:mainDisplay|counterd1[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
-; display:mainDisplay|counterd2[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
 ; display:mainDisplay|counterr0[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
-; display:mainDisplay|counterr1[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
-; display:mainDisplay|counterr2[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
 ; display:mainDisplay|counteru0[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
-; display:mainDisplay|counteru1[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
-; display:mainDisplay|counteru2[13]       ; Merged with display:mainDisplay|counterd0[13]    ;
-; display:mainDisplay|counterd1[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
-; display:mainDisplay|counterd2[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
 ; display:mainDisplay|counterr0[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
-; display:mainDisplay|counterr1[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
-; display:mainDisplay|counterr2[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
 ; display:mainDisplay|counteru0[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
-; display:mainDisplay|counteru1[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
-; display:mainDisplay|counteru2[12]       ; Merged with display:mainDisplay|counterd0[12]    ;
-; display:mainDisplay|counterd1[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
-; display:mainDisplay|counterd2[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
 ; display:mainDisplay|counterr0[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
-; display:mainDisplay|counterr1[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
-; display:mainDisplay|counterr2[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
 ; display:mainDisplay|counteru0[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
-; display:mainDisplay|counteru1[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
-; display:mainDisplay|counteru2[11]       ; Merged with display:mainDisplay|counterd0[11]    ;
-; display:mainDisplay|counterd1[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
-; display:mainDisplay|counterd2[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
 ; display:mainDisplay|counterr0[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
-; display:mainDisplay|counterr1[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
-; display:mainDisplay|counterr2[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
 ; display:mainDisplay|counteru0[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
-; display:mainDisplay|counteru1[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
-; display:mainDisplay|counteru2[10]       ; Merged with display:mainDisplay|counterd0[10]    ;
-; display:mainDisplay|counterd1[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
-; display:mainDisplay|counterd2[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
 ; display:mainDisplay|counterr0[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
-; display:mainDisplay|counterr1[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
-; display:mainDisplay|counterr2[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
 ; display:mainDisplay|counteru0[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
-; display:mainDisplay|counteru1[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
-; display:mainDisplay|counteru2[9]        ; Merged with display:mainDisplay|counterd0[9]     ;
-; display:mainDisplay|counterd1[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
-; display:mainDisplay|counterd2[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
 ; display:mainDisplay|counterr0[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
-; display:mainDisplay|counterr1[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
-; display:mainDisplay|counterr2[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
 ; display:mainDisplay|counteru0[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
-; display:mainDisplay|counteru1[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
-; display:mainDisplay|counteru2[8]        ; Merged with display:mainDisplay|counterd0[8]     ;
-; display:mainDisplay|counterd1[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
-; display:mainDisplay|counterd2[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
 ; display:mainDisplay|counterr0[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
-; display:mainDisplay|counterr1[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
-; display:mainDisplay|counterr2[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
 ; display:mainDisplay|counteru0[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
-; display:mainDisplay|counteru1[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
-; display:mainDisplay|counteru2[7]        ; Merged with display:mainDisplay|counterd0[7]     ;
-; display:mainDisplay|counterd1[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
-; display:mainDisplay|counterd2[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
 ; display:mainDisplay|counterr0[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
-; display:mainDisplay|counterr1[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
-; display:mainDisplay|counterr2[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
 ; display:mainDisplay|counteru0[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
-; display:mainDisplay|counteru1[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
-; display:mainDisplay|counteru2[6]        ; Merged with display:mainDisplay|counterd0[6]     ;
-; display:mainDisplay|counterd1[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
-; display:mainDisplay|counterd2[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
 ; display:mainDisplay|counterr0[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
-; display:mainDisplay|counterr1[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
-; display:mainDisplay|counterr2[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
 ; display:mainDisplay|counteru0[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
-; display:mainDisplay|counteru1[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
-; display:mainDisplay|counteru2[5]        ; Merged with display:mainDisplay|counterd0[5]     ;
-; display:mainDisplay|counterd1[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
-; display:mainDisplay|counterd2[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
 ; display:mainDisplay|counterr0[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
-; display:mainDisplay|counterr1[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
-; display:mainDisplay|counterr2[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
 ; display:mainDisplay|counteru0[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
-; display:mainDisplay|counteru1[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
-; display:mainDisplay|counteru2[4]        ; Merged with display:mainDisplay|counterd0[4]     ;
-; display:mainDisplay|counterd1[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
-; display:mainDisplay|counterd2[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
 ; display:mainDisplay|counterr0[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
-; display:mainDisplay|counterr1[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
-; display:mainDisplay|counterr2[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
 ; display:mainDisplay|counteru0[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
-; display:mainDisplay|counteru1[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
-; display:mainDisplay|counteru2[3]        ; Merged with display:mainDisplay|counterd0[3]     ;
-; display:mainDisplay|counterd1[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
-; display:mainDisplay|counterd2[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
 ; display:mainDisplay|counterr0[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
-; display:mainDisplay|counterr1[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
-; display:mainDisplay|counterr2[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
 ; display:mainDisplay|counteru0[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
-; display:mainDisplay|counteru1[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
-; display:mainDisplay|counteru2[2]        ; Merged with display:mainDisplay|counterd0[2]     ;
-; display:mainDisplay|counterd1[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
-; display:mainDisplay|counterd2[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
 ; display:mainDisplay|counterr0[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
-; display:mainDisplay|counterr1[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
-; display:mainDisplay|counterr2[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
 ; display:mainDisplay|counteru0[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
-; display:mainDisplay|counteru1[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
-; display:mainDisplay|counteru2[1]        ; Merged with display:mainDisplay|counterd0[1]     ;
-; display:mainDisplay|counterd1[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
-; display:mainDisplay|counterd2[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
 ; display:mainDisplay|counterr0[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
-; display:mainDisplay|counterr1[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
-; display:mainDisplay|counterr2[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
 ; display:mainDisplay|counteru0[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
-; display:mainDisplay|counteru1[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
-; display:mainDisplay|counteru2[0]        ; Merged with display:mainDisplay|counterd0[0]     ;
-; display:mainDisplay|arrowgo_down[1,2]   ; Merged with display:mainDisplay|arrowgo_down[0]  ;
-; display:mainDisplay|arrowgo_right[0..2] ; Merged with display:mainDisplay|arrowgo_down[0]  ;
-; display:mainDisplay|arrowgo_up[0..2]    ; Merged with display:mainDisplay|arrowgo_down[0]  ;
-; display:mainDisplay|arrowgo_down[0]     ; Stuck at GND due to stuck port data_in           ;
-; display:mainDisplay|deltay_down0[0..31] ; Stuck at GND due to stuck port clock_enable      ;
-; display:mainDisplay|counterd0[0..31]    ; Stuck at GND due to stuck port clock_enable      ;
-; Total Number of Removed Registers = 589 ;                                                  ;
+; display:mainDisplay|counterr1[31]       ; Merged with display:mainDisplay|counterd1[31]    ;
+; display:mainDisplay|counteru1[31]       ; Merged with display:mainDisplay|counterd1[31]    ;
+; display:mainDisplay|counterr1[30]       ; Merged with display:mainDisplay|counterd1[30]    ;
+; display:mainDisplay|counteru1[30]       ; Merged with display:mainDisplay|counterd1[30]    ;
+; display:mainDisplay|counterr1[29]       ; Merged with display:mainDisplay|counterd1[29]    ;
+; display:mainDisplay|counteru1[29]       ; Merged with display:mainDisplay|counterd1[29]    ;
+; display:mainDisplay|counterr1[28]       ; Merged with display:mainDisplay|counterd1[28]    ;
+; display:mainDisplay|counteru1[28]       ; Merged with display:mainDisplay|counterd1[28]    ;
+; display:mainDisplay|counterr1[27]       ; Merged with display:mainDisplay|counterd1[27]    ;
+; display:mainDisplay|counteru1[27]       ; Merged with display:mainDisplay|counterd1[27]    ;
+; display:mainDisplay|counterr1[26]       ; Merged with display:mainDisplay|counterd1[26]    ;
+; display:mainDisplay|counteru1[26]       ; Merged with display:mainDisplay|counterd1[26]    ;
+; display:mainDisplay|counterr1[25]       ; Merged with display:mainDisplay|counterd1[25]    ;
+; display:mainDisplay|counteru1[25]       ; Merged with display:mainDisplay|counterd1[25]    ;
+; display:mainDisplay|counterr1[24]       ; Merged with display:mainDisplay|counterd1[24]    ;
+; display:mainDisplay|counteru1[24]       ; Merged with display:mainDisplay|counterd1[24]    ;
+; display:mainDisplay|counterr1[23]       ; Merged with display:mainDisplay|counterd1[23]    ;
+; display:mainDisplay|counteru1[23]       ; Merged with display:mainDisplay|counterd1[23]    ;
+; display:mainDisplay|counterr1[22]       ; Merged with display:mainDisplay|counterd1[22]    ;
+; display:mainDisplay|counteru1[22]       ; Merged with display:mainDisplay|counterd1[22]    ;
+; display:mainDisplay|counterr1[21]       ; Merged with display:mainDisplay|counterd1[21]    ;
+; display:mainDisplay|counteru1[21]       ; Merged with display:mainDisplay|counterd1[21]    ;
+; display:mainDisplay|counterr1[20]       ; Merged with display:mainDisplay|counterd1[20]    ;
+; display:mainDisplay|counteru1[20]       ; Merged with display:mainDisplay|counterd1[20]    ;
+; display:mainDisplay|counterr1[19]       ; Merged with display:mainDisplay|counterd1[19]    ;
+; display:mainDisplay|counteru1[19]       ; Merged with display:mainDisplay|counterd1[19]    ;
+; display:mainDisplay|counterr1[18]       ; Merged with display:mainDisplay|counterd1[18]    ;
+; display:mainDisplay|counteru1[18]       ; Merged with display:mainDisplay|counterd1[18]    ;
+; display:mainDisplay|counterr1[17]       ; Merged with display:mainDisplay|counterd1[17]    ;
+; display:mainDisplay|counteru1[17]       ; Merged with display:mainDisplay|counterd1[17]    ;
+; display:mainDisplay|counterr1[16]       ; Merged with display:mainDisplay|counterd1[16]    ;
+; display:mainDisplay|counteru1[16]       ; Merged with display:mainDisplay|counterd1[16]    ;
+; display:mainDisplay|counterr1[15]       ; Merged with display:mainDisplay|counterd1[15]    ;
+; display:mainDisplay|counteru1[15]       ; Merged with display:mainDisplay|counterd1[15]    ;
+; display:mainDisplay|counterr1[14]       ; Merged with display:mainDisplay|counterd1[14]    ;
+; display:mainDisplay|counteru1[14]       ; Merged with display:mainDisplay|counterd1[14]    ;
+; display:mainDisplay|counterr1[13]       ; Merged with display:mainDisplay|counterd1[13]    ;
+; display:mainDisplay|counteru1[13]       ; Merged with display:mainDisplay|counterd1[13]    ;
+; display:mainDisplay|counterr1[12]       ; Merged with display:mainDisplay|counterd1[12]    ;
+; display:mainDisplay|counteru1[12]       ; Merged with display:mainDisplay|counterd1[12]    ;
+; display:mainDisplay|counterr1[11]       ; Merged with display:mainDisplay|counterd1[11]    ;
+; display:mainDisplay|counteru1[11]       ; Merged with display:mainDisplay|counterd1[11]    ;
+; display:mainDisplay|counterr1[10]       ; Merged with display:mainDisplay|counterd1[10]    ;
+; display:mainDisplay|counteru1[10]       ; Merged with display:mainDisplay|counterd1[10]    ;
+; display:mainDisplay|counterr1[9]        ; Merged with display:mainDisplay|counterd1[9]     ;
+; display:mainDisplay|counteru1[9]        ; Merged with display:mainDisplay|counterd1[9]     ;
+; display:mainDisplay|counterr1[8]        ; Merged with display:mainDisplay|counterd1[8]     ;
+; display:mainDisplay|counteru1[8]        ; Merged with display:mainDisplay|counterd1[8]     ;
+; display:mainDisplay|counterr1[7]        ; Merged with display:mainDisplay|counterd1[7]     ;
+; display:mainDisplay|counteru1[7]        ; Merged with display:mainDisplay|counterd1[7]     ;
+; display:mainDisplay|counterr1[6]        ; Merged with display:mainDisplay|counterd1[6]     ;
+; display:mainDisplay|counteru1[6]        ; Merged with display:mainDisplay|counterd1[6]     ;
+; display:mainDisplay|counterr1[5]        ; Merged with display:mainDisplay|counterd1[5]     ;
+; display:mainDisplay|counteru1[5]        ; Merged with display:mainDisplay|counterd1[5]     ;
+; display:mainDisplay|counterr1[4]        ; Merged with display:mainDisplay|counterd1[4]     ;
+; display:mainDisplay|counteru1[4]        ; Merged with display:mainDisplay|counterd1[4]     ;
+; display:mainDisplay|counterr1[3]        ; Merged with display:mainDisplay|counterd1[3]     ;
+; display:mainDisplay|counteru1[3]        ; Merged with display:mainDisplay|counterd1[3]     ;
+; display:mainDisplay|counterr1[2]        ; Merged with display:mainDisplay|counterd1[2]     ;
+; display:mainDisplay|counteru1[2]        ; Merged with display:mainDisplay|counterd1[2]     ;
+; display:mainDisplay|counterr1[1]        ; Merged with display:mainDisplay|counterd1[1]     ;
+; display:mainDisplay|counteru1[1]        ; Merged with display:mainDisplay|counterd1[1]     ;
+; display:mainDisplay|counterr1[0]        ; Merged with display:mainDisplay|counterd1[0]     ;
+; display:mainDisplay|counteru1[0]        ; Merged with display:mainDisplay|counterd1[0]     ;
+; display:mainDisplay|counterr2[31]       ; Merged with display:mainDisplay|counterd2[31]    ;
+; display:mainDisplay|counteru2[31]       ; Merged with display:mainDisplay|counterd2[31]    ;
+; display:mainDisplay|counterr2[30]       ; Merged with display:mainDisplay|counterd2[30]    ;
+; display:mainDisplay|counteru2[30]       ; Merged with display:mainDisplay|counterd2[30]    ;
+; display:mainDisplay|counterr2[29]       ; Merged with display:mainDisplay|counterd2[29]    ;
+; display:mainDisplay|counteru2[29]       ; Merged with display:mainDisplay|counterd2[29]    ;
+; display:mainDisplay|counterr2[28]       ; Merged with display:mainDisplay|counterd2[28]    ;
+; display:mainDisplay|counteru2[28]       ; Merged with display:mainDisplay|counterd2[28]    ;
+; display:mainDisplay|counterr2[27]       ; Merged with display:mainDisplay|counterd2[27]    ;
+; display:mainDisplay|counteru2[27]       ; Merged with display:mainDisplay|counterd2[27]    ;
+; display:mainDisplay|counterr2[26]       ; Merged with display:mainDisplay|counterd2[26]    ;
+; display:mainDisplay|counteru2[26]       ; Merged with display:mainDisplay|counterd2[26]    ;
+; display:mainDisplay|counterr2[25]       ; Merged with display:mainDisplay|counterd2[25]    ;
+; display:mainDisplay|counteru2[25]       ; Merged with display:mainDisplay|counterd2[25]    ;
+; display:mainDisplay|counterr2[24]       ; Merged with display:mainDisplay|counterd2[24]    ;
+; display:mainDisplay|counteru2[24]       ; Merged with display:mainDisplay|counterd2[24]    ;
+; display:mainDisplay|counterr2[23]       ; Merged with display:mainDisplay|counterd2[23]    ;
+; display:mainDisplay|counteru2[23]       ; Merged with display:mainDisplay|counterd2[23]    ;
+; display:mainDisplay|counterr2[22]       ; Merged with display:mainDisplay|counterd2[22]    ;
+; display:mainDisplay|counteru2[22]       ; Merged with display:mainDisplay|counterd2[22]    ;
+; display:mainDisplay|counterr2[21]       ; Merged with display:mainDisplay|counterd2[21]    ;
+; display:mainDisplay|counteru2[21]       ; Merged with display:mainDisplay|counterd2[21]    ;
+; display:mainDisplay|counterr2[20]       ; Merged with display:mainDisplay|counterd2[20]    ;
+; display:mainDisplay|counteru2[20]       ; Merged with display:mainDisplay|counterd2[20]    ;
+; display:mainDisplay|counterr2[19]       ; Merged with display:mainDisplay|counterd2[19]    ;
+; display:mainDisplay|counteru2[19]       ; Merged with display:mainDisplay|counterd2[19]    ;
+; display:mainDisplay|counterr2[18]       ; Merged with display:mainDisplay|counterd2[18]    ;
+; display:mainDisplay|counteru2[18]       ; Merged with display:mainDisplay|counterd2[18]    ;
+; display:mainDisplay|counterr2[17]       ; Merged with display:mainDisplay|counterd2[17]    ;
+; display:mainDisplay|counteru2[17]       ; Merged with display:mainDisplay|counterd2[17]    ;
+; display:mainDisplay|counterr2[16]       ; Merged with display:mainDisplay|counterd2[16]    ;
+; display:mainDisplay|counteru2[16]       ; Merged with display:mainDisplay|counterd2[16]    ;
+; display:mainDisplay|counterr2[15]       ; Merged with display:mainDisplay|counterd2[15]    ;
+; display:mainDisplay|counteru2[15]       ; Merged with display:mainDisplay|counterd2[15]    ;
+; display:mainDisplay|counterr2[14]       ; Merged with display:mainDisplay|counterd2[14]    ;
+; display:mainDisplay|counteru2[14]       ; Merged with display:mainDisplay|counterd2[14]    ;
+; display:mainDisplay|counterr2[13]       ; Merged with display:mainDisplay|counterd2[13]    ;
+; display:mainDisplay|counteru2[13]       ; Merged with display:mainDisplay|counterd2[13]    ;
+; display:mainDisplay|counterr2[12]       ; Merged with display:mainDisplay|counterd2[12]    ;
+; display:mainDisplay|counteru2[12]       ; Merged with display:mainDisplay|counterd2[12]    ;
+; display:mainDisplay|counterr2[11]       ; Merged with display:mainDisplay|counterd2[11]    ;
+; display:mainDisplay|counteru2[11]       ; Merged with display:mainDisplay|counterd2[11]    ;
+; display:mainDisplay|counterr2[10]       ; Merged with display:mainDisplay|counterd2[10]    ;
+; display:mainDisplay|counteru2[10]       ; Merged with display:mainDisplay|counterd2[10]    ;
+; display:mainDisplay|counterr2[9]        ; Merged with display:mainDisplay|counterd2[9]     ;
+; display:mainDisplay|counteru2[9]        ; Merged with display:mainDisplay|counterd2[9]     ;
+; display:mainDisplay|counterr2[8]        ; Merged with display:mainDisplay|counterd2[8]     ;
+; display:mainDisplay|counteru2[8]        ; Merged with display:mainDisplay|counterd2[8]     ;
+; display:mainDisplay|counterr2[7]        ; Merged with display:mainDisplay|counterd2[7]     ;
+; display:mainDisplay|counteru2[7]        ; Merged with display:mainDisplay|counterd2[7]     ;
+; display:mainDisplay|counterr2[6]        ; Merged with display:mainDisplay|counterd2[6]     ;
+; display:mainDisplay|counteru2[6]        ; Merged with display:mainDisplay|counterd2[6]     ;
+; display:mainDisplay|counterr2[5]        ; Merged with display:mainDisplay|counterd2[5]     ;
+; display:mainDisplay|counteru2[5]        ; Merged with display:mainDisplay|counterd2[5]     ;
+; display:mainDisplay|counterr2[4]        ; Merged with display:mainDisplay|counterd2[4]     ;
+; display:mainDisplay|counteru2[4]        ; Merged with display:mainDisplay|counterd2[4]     ;
+; display:mainDisplay|counterr2[3]        ; Merged with display:mainDisplay|counterd2[3]     ;
+; display:mainDisplay|counteru2[3]        ; Merged with display:mainDisplay|counterd2[3]     ;
+; display:mainDisplay|counterr2[2]        ; Merged with display:mainDisplay|counterd2[2]     ;
+; display:mainDisplay|counteru2[2]        ; Merged with display:mainDisplay|counterd2[2]     ;
+; display:mainDisplay|counterr2[1]        ; Merged with display:mainDisplay|counterd2[1]     ;
+; display:mainDisplay|counteru2[1]        ; Merged with display:mainDisplay|counterd2[1]     ;
+; display:mainDisplay|counterr2[0]        ; Merged with display:mainDisplay|counterd2[0]     ;
+; display:mainDisplay|counteru2[0]        ; Merged with display:mainDisplay|counterd2[0]     ;
+; display:mainDisplay|down_active[2]      ; Stuck at GND due to stuck port data_in           ;
+; display:mainDisplay|flash_countr[0]     ; Stuck at GND due to stuck port data_in           ;
+; display:mainDisplay|flash_countu[0]     ; Stuck at GND due to stuck port data_in           ;
+; display:mainDisplay|flash_countd[0]     ; Stuck at GND due to stuck port data_in           ;
+; display:mainDisplay|flash_countl[0]     ; Stuck at GND due to stuck port data_in           ;
+; display:mainDisplay|flash_valuer~7      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valuer~8      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valueu~7      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valueu~8      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valued~7      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valued~8      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valuel~7      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valuel~8      ; Lost fanout                                      ;
+; display:mainDisplay|flash_valuer.0010   ; Lost fanout                                      ;
+; display:mainDisplay|flash_valueu.0010   ; Lost fanout                                      ;
+; display:mainDisplay|flash_valued.0010   ; Lost fanout                                      ;
+; Total Number of Removed Registers = 410 ;                                                  ;
 +-----------------------------------------+--------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                   ;
-+-------------------------------------+---------------------------+-----------------------------------------------------------------------------+
-; Register name                       ; Reason for Removal        ; Registers Removed due to This Register                                      ;
-+-------------------------------------+---------------------------+-----------------------------------------------------------------------------+
-; display:mainDisplay|arrowgo_down[0] ; Stuck at GND              ; display:mainDisplay|deltay_down0[0], display:mainDisplay|deltay_down0[1],   ;
-;                                     ; due to stuck port data_in ; display:mainDisplay|deltay_down0[2], display:mainDisplay|deltay_down0[3],   ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[4], display:mainDisplay|deltay_down0[5],   ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[6], display:mainDisplay|deltay_down0[7],   ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[8], display:mainDisplay|deltay_down0[9],   ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[10], display:mainDisplay|deltay_down0[11], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[12], display:mainDisplay|deltay_down0[13], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[14], display:mainDisplay|deltay_down0[15], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[16], display:mainDisplay|deltay_down0[17], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[18], display:mainDisplay|deltay_down0[19], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[20], display:mainDisplay|deltay_down0[21], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[22], display:mainDisplay|deltay_down0[23], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[24], display:mainDisplay|deltay_down0[25], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[26], display:mainDisplay|deltay_down0[27], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[28], display:mainDisplay|deltay_down0[29], ;
-;                                     ;                           ; display:mainDisplay|deltay_down0[30], display:mainDisplay|deltay_down0[31], ;
-;                                     ;                           ; display:mainDisplay|counterd0[0], display:mainDisplay|counterd0[1],         ;
-;                                     ;                           ; display:mainDisplay|counterd0[2], display:mainDisplay|counterd0[3],         ;
-;                                     ;                           ; display:mainDisplay|counterd0[4], display:mainDisplay|counterd0[5],         ;
-;                                     ;                           ; display:mainDisplay|counterd0[6], display:mainDisplay|counterd0[7],         ;
-;                                     ;                           ; display:mainDisplay|counterd0[8], display:mainDisplay|counterd0[9],         ;
-;                                     ;                           ; display:mainDisplay|counterd0[10], display:mainDisplay|counterd0[11],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[12], display:mainDisplay|counterd0[13],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[14], display:mainDisplay|counterd0[15],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[16], display:mainDisplay|counterd0[17],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[18], display:mainDisplay|counterd0[19],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[20], display:mainDisplay|counterd0[21],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[22], display:mainDisplay|counterd0[23],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[24], display:mainDisplay|counterd0[25],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[26], display:mainDisplay|counterd0[27],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[28], display:mainDisplay|counterd0[29],       ;
-;                                     ;                           ; display:mainDisplay|counterd0[30], display:mainDisplay|counterd0[31]        ;
-+-------------------------------------+---------------------------+-----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -798,12 +697,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 277   ;
-; Number of registers using Synchronous Clear  ; 150   ;
+; Total registers                              ; 615   ;
+; Number of registers using Synchronous Clear  ; 370   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 192   ;
+; Number of registers using Clock Enable       ; 510   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -813,23 +712,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; display:mainDisplay|deltay_left0[8]    ; 3       ;
-; display:mainDisplay|deltay_left0[6]    ; 5       ;
-; display:mainDisplay|deltay_left0[4]    ; 5       ;
-; display:mainDisplay|deltay_left1[4]    ; 2       ;
-; display:mainDisplay|deltay_left1[6]    ; 2       ;
-; display:mainDisplay|deltay_left1[8]    ; 2       ;
+; display:mainDisplay|deltay_left0[4]    ; 9       ;
+; display:mainDisplay|deltay_left0[8]    ; 10      ;
+; display:mainDisplay|deltay_left0[6]    ; 10      ;
+; display:mainDisplay|deltay_left1[4]    ; 11      ;
+; display:mainDisplay|deltay_left1[6]    ; 9       ;
+; display:mainDisplay|deltay_left1[8]    ; 9       ;
 ; Total number of inverted registers = 6 ;         ;
 +----------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
-; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |DanceCentralRevolution|display:mainDisplay|mBlue ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |DanceCentralRevolution|display:mainDisplay|flash_countr[19] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |DanceCentralRevolution|display:mainDisplay|flash_countu[18] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |DanceCentralRevolution|display:mainDisplay|flash_countd[8]  ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |DanceCentralRevolution|display:mainDisplay|flash_countl[13] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |DanceCentralRevolution|display:mainDisplay|flash_valued     ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |DanceCentralRevolution|display:mainDisplay|flash_valuer     ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |DanceCentralRevolution|display:mainDisplay|flash_valueu     ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |DanceCentralRevolution|display:mainDisplay|flash_valuel     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------+
@@ -873,32 +779,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 277                         ;
-;     ENA               ; 96                          ;
-;     ENA SCLR          ; 96                          ;
+; arriav_ff             ; 615                         ;
+;     ENA               ; 194                         ;
+;     ENA SCLR          ; 316                         ;
 ;     SCLR              ; 54                          ;
-;     plain             ; 31                          ;
-; arriav_lcell_comb     ; 1659                        ;
-;     arith             ; 1011                        ;
-;         0 data inputs ; 16                          ;
-;         1 data inputs ; 564                         ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 234                         ;
-;         5 data inputs ; 181                         ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 646                         ;
+;     plain             ; 51                          ;
+; arriav_lcell_comb     ; 5836                        ;
+;     arith             ; 3579                        ;
+;         0 data inputs ; 46                          ;
+;         1 data inputs ; 2030                        ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 984                         ;
+;         5 data inputs ; 508                         ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 2254                        ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 46                          ;
-;         3 data inputs ; 67                          ;
-;         4 data inputs ; 73                          ;
-;         5 data inputs ; 130                         ;
-;         6 data inputs ; 327                         ;
+;         2 data inputs ; 115                         ;
+;         3 data inputs ; 399                         ;
+;         4 data inputs ; 428                         ;
+;         5 data inputs ; 536                         ;
+;         6 data inputs ; 773                         ;
 ; boundary_port         ; 38                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 17.10                       ;
-; Average LUT depth     ; 13.37                       ;
+; Max LUT depth         ; 20.40                       ;
+; Average LUT depth     ; 16.83                       ;
 +-----------------------+-----------------------------+
 
 
@@ -907,7 +813,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:15     ;
 +----------------+--------------+
 
 
@@ -917,7 +823,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Aug 03 18:59:28 2017
+    Info: Processing started: Mon Aug 07 17:03:24 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DanceCentralRevolution -c DanceCentralRevolution
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -927,35 +833,32 @@ Info (12127): Elaborating entity "DanceCentralRevolution" for the top level hier
 Warning (12125): Using design file display.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: display File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 1
 Info (12128): Elaborating entity "display" for hierarchy "display:mainDisplay" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at display.v(37): object "left_activecount0" assigned a value but never read File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 37
-Warning (10230): Verilog HDL assignment warning at display.v(137): truncated value with size 32 to match size of target (4) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 137
+Warning (10230): Verilog HDL assignment warning at display.v(152): truncated value with size 32 to match size of target (4) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 152
 Warning (12125): Using design file vga_ctrl.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: VGA_Ctrl File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 1
-Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "display:mainDisplay|VGA_Ctrl:controller" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 121
+Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "display:mainDisplay|VGA_Ctrl:controller" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/display.v Line: 136
 Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(64): truncated value with size 32 to match size of target (22) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 64
 Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(67): truncated value with size 32 to match size of target (11) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 67
 Warning (10230): Verilog HDL assignment warning at vga_ctrl.v(68): truncated value with size 32 to match size of target (11) File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/vga_ctrl.v Line: 68
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
+Warning (21074): Design contains 5 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "go_switch" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
-    Warning (15610): No output dependent on input pin "pad[0]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
-    Warning (15610): No output dependent on input pin "pad[1]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
-    Warning (15610): No output dependent on input pin "pad[2]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
     Warning (15610): No output dependent on input pin "testsignal[0]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
     Warning (15610): No output dependent on input pin "testsignal[1]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
     Warning (15610): No output dependent on input pin "testsignal[2]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
     Warning (15610): No output dependent on input pin "testsignal[3]" File: C:/Users/chernya/Documents/_summer2017/adv_dig_circ/final_project/final_project_files/DanceCentralRevolutionFPGA/DanceCentralRevolution.v Line: 1
-Info (21057): Implemented 1909 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6253 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 1871 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 736 megabytes
-    Info: Processing ended: Thu Aug 03 18:59:44 2017
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:29
+    Info (21061): Implemented 6215 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 770 megabytes
+    Info: Processing ended: Mon Aug 07 17:03:50 2017
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:39
 
 

@@ -120,6 +120,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "pad[2]",
+					"strict" : false
+				},
+				{
+					"name" : "pad[1]",
+					"strict" : false
+				},
+				{
+					"name" : "pad[0]",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				}
